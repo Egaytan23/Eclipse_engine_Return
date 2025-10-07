@@ -1,18 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int maxHealth = 100;
+    private int currentHealth;
+    public Slider HealthBar;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        HealthBar.maxValue = maxHealth;
+        HealthBar.value = currentHealth;
     }
 
-    // Update is called once per frame
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        HealthBar.value = currentHealth;
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth,0, maxHealth);
+        HealthBar.value = currentHealth;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+    
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.H)) TakeDamage(10);
+        if (Input.GetKeyDown(KeyCode.J)) Heal(10);
     }
 }
