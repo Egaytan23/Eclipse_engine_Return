@@ -1,0 +1,97 @@
+# ==========================================
+# Unity generated files
+# ==========================================
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+Recordings/
+
+# ==========================================
+# Asset Store and Package Manager stuff
+# ==========================================
+Assets/AssetStoreTools*
+Packages/packages-lock.json
+
+# ==========================================
+# Visual Studio and JetBrains Rider
+# ==========================================
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# ==========================================
+# Unity Cache and Auto-generated Files
+# ==========================================
+*.unityproj
+*.tmproj
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# ==========================================
+# Build artifacts
+# ==========================================
+*.apk
+*.aab
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata/
+*.xcuserstate
+*.app
+*.exe
+*.dll
+*.so
+*.dSYM
+*.ipa
+*.jar
+*.class
+
+# ==========================================
+# Other stuff you don't need to track
+# ==========================================
+.DS_Store
+*.swp
+*.tmp
+*.bak
+*.orig
+*.log
+
+# ==========================================
+# Addressables and Local Data
+# ==========================================
+/Assets/AddressableAssetsData/*
+!/Assets/AddressableAssetsData/AddressableAssetSettings*
+*.local
+*.cache
+
+# ==========================================
+# Crash and profiler logs
+# ==========================================
+sysinfo.txt
+*.stackdump
+
+# ==========================================
+# Ignore build report
+# ==========================================
+BuildReportFiles/
+
+# ==========================================
+# Collaborate & Plastic SCM
+# ==========================================
+.collabignore
+PlasticSCM/
