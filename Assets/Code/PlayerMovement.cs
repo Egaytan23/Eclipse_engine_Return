@@ -6,14 +6,20 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public float jumpForce = 5f;
+    public float mouseSensitivity = 2f;
+    public int Damageoutput = 5;
+    public int AttackRange = 2;
 
     private Rigidbody rb;
     private bool isGrounded;
+    private Transform playerCamera;
+    private float xRotation = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerCamera = GetComponentInChildren<Camera>().transform;
 
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -26,9 +32,24 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
     }
 
+    void LookAround()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        transform.Rotate(Vector3.up * mouseX);
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
+        LookAround();
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Debug.Log("Horizontal: " + horizontal + " Vertical: " + vertical);

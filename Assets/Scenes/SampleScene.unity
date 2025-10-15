@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 1070536944}
   m_Layer: 0
   m_Name: Sasquatch Jr
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -988,6 +988,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 5
+  mouseSensitivity: 2
+  Damageoutput: 5
+  AttackRange: 2
 --- !u!136 &1744145676
 CapsuleCollider:
   m_ObjectHideFlags: 0

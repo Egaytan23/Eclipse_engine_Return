@@ -36,8 +36,18 @@ public class SasquatchJr_Movement : MonoBehaviour
         {
             MoveTowardsPlayer();
         }
+    }
 
-    
+    void TakeDamage()
+    {
+
+    }
+
+    void Die()
+    {
+
+    }
+
     void MoveTowardsPlayer()
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed *Time.deltaTime);
@@ -56,5 +66,5 @@ public class SasquatchJr_Movement : MonoBehaviour
             }
         }
 
-    }
+    
 }
