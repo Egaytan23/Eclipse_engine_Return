@@ -24,6 +24,8 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Update()
     {
+        
+        
         if (player == null) return;
 
         float distance = Vector3.Distance(transform.position, player.position);
@@ -38,15 +40,7 @@ public class SasquatchJr_Movement : MonoBehaviour
         }
     }
 
-    void TakeDamage()
-    {
-
-    }
-
-    void Die()
-    {
-
-    }
+    
 
     void MoveTowardsPlayer()
         {

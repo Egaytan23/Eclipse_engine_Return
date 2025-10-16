@@ -8,12 +8,13 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public Slider HealthBar;
+    
 
     void Start()
     {
         currentHealth = maxHealth;
         HealthBar.maxValue = maxHealth;
-        HealthBar.value = currentHealth;
+        HealthBar.value = currentHealth; 
     }
 
     public void TakeDamage(int amount)
@@ -42,7 +43,6 @@ public class PlayerHealth : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H)) TakeDamage(10);
-        if (Input.GetKeyDown(KeyCode.J)) Heal(10);
+       
     }
 }

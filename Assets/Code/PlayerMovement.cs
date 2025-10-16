@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 1f;
     public float jumpForce = 5f;
     public float mouseSensitivity = 2f;
-    public int Damageoutput = 5;
-    public int AttackRange = 2;
+
+   
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
-
+    
 
     // Update is called once per frame
     void Update()
@@ -52,9 +52,7 @@ public class PlayerMovement : MonoBehaviour
         LookAround();
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Debug.Log("Horizontal: " + horizontal + " Vertical: " + vertical);
-
-
+        
         Vector3 movement = transform.forward * vertical + transform.right * horizontal;
         Vector3 newVelocity = movement * moveSpeed;
         newVelocity.y = rb.velocity.y;
