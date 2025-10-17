@@ -462,7 +462,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   attackDamage: 5
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 726702444}
 --- !u!224 &1855990041 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8385431356101358452, guid: 7a3989480e258e54d9ee927cf3981792, type: 3}

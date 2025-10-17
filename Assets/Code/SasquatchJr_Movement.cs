@@ -40,7 +40,22 @@ public class SasquatchJr_Movement : MonoBehaviour
         }
     }
 
-    
+    public void TakeDamage(int damageAmount)
+    {
+        SasjrCURRhealth -= damageAmount;
+        Debug.Log("Enemy took" + damageAmount + " damage. Health now: " + SasjrCURRhealth);
+
+        if (SasjrCURRhealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy dead");
+        Destroy(gameObject);
+    }
 
     void MoveTowardsPlayer()
         {
