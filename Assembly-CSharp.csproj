@@ -64,6 +64,7 @@
     <Compile Include="Assets\Code\PlayerHealth.cs" />
     <Compile Include="Assets\Code\SasquatchJr_Movement.cs" />
     <Compile Include="Assets\Code\PlayerMovement.cs" />
+    <Compile Include="Assets\Code\SpawnEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
