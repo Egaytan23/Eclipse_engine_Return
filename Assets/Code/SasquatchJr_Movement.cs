@@ -15,11 +15,13 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     private Transform player;
     private bool canAttack = true;
+    private Rigidbody rb;
 
     void Start()
     {
         SasjrCURRhealth = SasjrMAXHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb.isKinematic = true;
     }
 
     void Update()

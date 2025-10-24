@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerCamera = GetComponentInChildren<Camera>().transform;
-
         Cursor.lockState = CursorLockMode.Locked;
+        rb.freezeRotation = true;
     }
 
     private void OnCollisionStay(Collision collision)
