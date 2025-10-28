@@ -151,6 +151,6 @@ MonoBehaviour:
   SasjrMAXHealth: 100
   SasjrCURRhealth: 0
   SasjrDamage: 5
-  moveSpeed: 5
+  moveSpeed: 2
   Attackrange: 2
   Attackcooldown: 1.5
