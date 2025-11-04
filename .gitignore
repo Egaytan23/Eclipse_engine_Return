@@ -106,3 +106,5 @@ PlasticSCM/
 *.sln.iml
 .idea/
 .idea_modules/
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Assembly-CSharp.csproj
