@@ -1,13 +1,13 @@
 # ==========================================
 # Unity generated files
 # ==========================================
-
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+Logs/**/*.log
 UserSettings/
 MemoryCaptures/
 Recordings/
@@ -16,10 +16,11 @@ Recordings/
 # Asset Store and Package Manager stuff
 # ==========================================
 Assets/AssetStoreTools*
+# Keep manifest.json so dependencies are shared, but ignore lockfile
 Packages/packages-lock.json
 
 # ==========================================
-# Visual Studio and JetBrains Rider
+# Visual Studio / JetBrains Rider
 # ==========================================
 .vs/
 .vscode/
@@ -44,7 +45,7 @@ Packages/packages-lock.json
 *.mdb.meta
 
 # ==========================================
-# Build artifacts
+# Build Artifacts
 # ==========================================
 *.apk
 *.aab
@@ -62,7 +63,7 @@ Packages/packages-lock.json
 *.class
 
 # ==========================================
-# Other stuff you don't need to track
+# Misc / OS junk files
 # ==========================================
 .DS_Store
 *.swp
@@ -70,9 +71,12 @@ Packages/packages-lock.json
 *.bak
 *.orig
 *.log
+Thumbs.db
+ehthumbs.db
+desktop.ini
 
 # ==========================================
-# Addressables and Local Data
+# Addressables & Local Data
 # ==========================================
 /Assets/AddressableAssetsData/*
 !/Assets/AddressableAssetsData/AddressableAssetSettings*
@@ -80,18 +84,27 @@ Packages/packages-lock.json
 *.cache
 
 # ==========================================
-# Crash and profiler logs
+# Crash & Profiler Logs
 # ==========================================
 sysinfo.txt
 *.stackdump
 
 # ==========================================
-# Ignore build report
+# Build Reports
 # ==========================================
 BuildReportFiles/
 
 # ==========================================
-# Collaborate & Plastic SCM
+# Collaborate / Plastic SCM
 # ==========================================
 .collabignore
 PlasticSCM/
+
+# ==========================================
+# Rider / JetBrains specific
+# ==========================================
+*.sln.iml
+.idea/
+.idea_modules/
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Assembly-CSharp.csproj
