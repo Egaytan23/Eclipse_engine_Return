@@ -14,13 +14,14 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            SasquatchJr_Movement target = collision.gameObject.GetComponent<SasquatchJr_Movement>();
+            Enemy_health target = collision.gameObject.GetComponent<Enemy_health>();
             if (target != null)
             {
                 target.TakeDamage(damage);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
     void Update()
     {

@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             
-            SasquatchJr_Movement target = hit.transform.GetComponent<SasquatchJr_Movement>();
+            Enemy_health target = hit.transform.GetComponent<Enemy_health>();
 
             if (target != null)
             {

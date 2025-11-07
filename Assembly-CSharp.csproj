@@ -65,6 +65,7 @@
     <Compile Include="Assets\Code\PlayerCombat.cs" />
     <Compile Include="Assets\Code\PlayerHealth.cs" />
     <Compile Include="Assets\Code\SasquatchJr_Movement.cs" />
+    <Compile Include="Assets\Code\Enemy_health.cs" />
     <Compile Include="Assets\Code\PlayerMovement.cs" />
     <Compile Include="Assets\Code\WeaponManager.cs" />
     <Compile Include="Assets\Code\SpawnEnemy.cs" />

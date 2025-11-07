@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4855594004054447698}
   - component: {fileID: 1952217742381249908}
   - component: {fileID: 6171319674064957035}
+  - component: {fileID: 4572856186753324440}
   m_Layer: 0
   m_Name: Sasquatch Jr
   m_TagString: Enemy
@@ -148,9 +149,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ac59e680961074cadc226f5df4674d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SasjrMAXHealth: 100
-  SasjrCURRhealth: 0
   SasjrDamage: 5
   moveSpeed: 2
   Attackrange: 2
   Attackcooldown: 1.5
+--- !u!114 &4572856186753324440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120265065994267771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68115f103847059498670e153e831e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBarPrefab: {fileID: 5967785847159378188, guid: 2e7918c1412318a438856ee5b9b89fb8, type: 3}

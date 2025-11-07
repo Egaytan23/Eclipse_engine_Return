@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SasquatchJr_Movement : MonoBehaviour
 {
-    public int SasjrMAXHealth = 100;
-    public int SasjrCURRhealth;
+    
     public int SasjrDamage = 5;
 
     public float moveSpeed = 5f;
@@ -19,9 +18,9 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Start()
     {
-        SasjrCURRhealth = SasjrMAXHealth;
+       
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
     }
 
     void Update()
@@ -40,23 +39,6 @@ public class SasquatchJr_Movement : MonoBehaviour
         {
             MoveTowardsPlayer();
         }
-    }
-
-    public void TakeDamage(int damageAmount)
-    {
-        SasjrCURRhealth -= damageAmount;
-        Debug.Log("Enemy took" + damageAmount + " damage. Health now: " + SasjrCURRhealth);
-
-        if (SasjrCURRhealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Debug.Log("Enemy dead");
-        Destroy(gameObject);
     }
 
     void MoveTowardsPlayer()

@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (hit.transform.CompareTag("Enemy"))
             {
-                hit.transform.GetComponent<SasquatchJr_Movement>().TakeDamage(attackDamage); //Find the SasquatchJr_Movement script on the object we hit, and call its TakeDamage() method
+                hit.transform.GetComponent<Enemy_health>().TakeDamage(attackDamage); //Find the SasquatchJr_Movement script on the object we hit, and call its TakeDamage() method
                 Debug.Log("Hit");
             }
         }
