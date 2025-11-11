@@ -32,7 +32,7 @@ public class SpawnEnemy : MonoBehaviour
             Debug.Log("Instantiating " + prefab.name + " at " + spawnPoint.position);
 
 
-            Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            Instantiate(prefab, spawnPoint.position + Vector3.up * 0.5f, spawnPoint.rotation);
 
 
             enemimesAlive++;
