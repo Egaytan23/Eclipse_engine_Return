@@ -69,6 +69,7 @@
     <Compile Include="Assets\Code\PlayerMovement.cs" />
     <Compile Include="Assets\Code\WeaponManager.cs" />
     <Compile Include="Assets\Code\SpawnEnemy.cs" />
+    <Compile Include="Assets\Code\EnemyDeathNotifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -11,10 +11,12 @@ public class SpawnEnemy : MonoBehaviour
     private int currentWave = 1; // Current wave number
     private int enemimesAlive = 0; // Track number of alive enemies
 
+    private Transform player;
+
     void Start()
     {
         Debug.Log("Enemy prefabs count: " + enemyPrefabs.Length + ", spawn points count: " + spawnPoints.Length);
-
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         Debug.Log("Spawner script started!");
         StartCoroutine(SpawnWaves());
     }
@@ -28,37 +30,40 @@ public class SpawnEnemy : MonoBehaviour
         {
             GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            Debug.Log("Instantiating " + prefab.name + " at " + spawnPoint.position);
-
-
-            Instantiate(prefab, spawnPoint.position + Vector3.up * 0.5f, spawnPoint.rotation);
-
+  
+            GameObject enemy = Instantiate(prefab, spawnPoint.position + Vector3.up * 1.2f,spawnPoint.rotation);
 
             enemimesAlive++;
 
-            if (timeBetweenSpawns > 0f)
-            
-                yield return new WaitForSeconds(timeBetweenSpawns);
-            else
-        
-            yield return null; //wait until next frame
+            EnemyDeathNotifier notifier = enemy.AddComponent<EnemyDeathNotifier>();
+            notifier.spawner = this;
+
+            yield return new WaitForSeconds(timeBetweenSpawns);
         }
         }
 
 
     IEnumerator SpawnWaves() //IEnumerator allows for pausing execution and resuming later, important for timed events like spawning enemies
     {
-        Debug.Log("SpawnWaves coroutine started!");
+       
         while (true)
         {
             Debug.Log("Preparing to spawn wave " + currentWave);
+            
             int toSpawn = enemiesPerWave + (currentWave - 1) * 2; // Increase enemies per wave
+
+            Debug.Log("Wave " + currentWave + " will spawn " + timeBetweenWaves + " seconds");
+            yield return new WaitForSeconds(timeBetweenWaves);
+
+            Debug.Log("Spawning wave " + currentWave);
+
             yield return StartCoroutine(SpawnWave(toSpawn));
+            
             while (enemimesAlive > 0)
             {
                 yield return new WaitForSeconds(0.5f);
             }
+            Debug.Log("Wave " + currentWave + " completed!");
             currentWave++;
             yield return new WaitForSeconds(timeBetweenWaves);
         }

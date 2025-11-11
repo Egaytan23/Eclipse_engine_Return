@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6291227735109002301}
   - component: {fileID: 5554904320478245249}
   - component: {fileID: -6606496917478319910}
-  - component: {fileID: 126898790283277256}
+  - component: {fileID: -5222191620760751961}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2384133642343426184}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 47568326c5c75414d99e0bdbd9508189, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 40
---- !u!54 &126898790283277256
+--- !u!54 &-5222191620760751961
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2384133642343426184}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

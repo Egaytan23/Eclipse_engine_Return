@@ -14,13 +14,16 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     private Transform player;
     private bool canAttack = true;
-    private Rigidbody rb;
+   // private Rigidbody rb;
 
     void Start()
     {
        
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.LookAt(player); //make the enemy face the player at start
         //rb.isKinematic = true;
+
+
     }
 
     void Update()

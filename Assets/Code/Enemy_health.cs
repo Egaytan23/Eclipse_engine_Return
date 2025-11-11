@@ -64,10 +64,5 @@ public class Enemy_health : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position + Vector3.up * 2.5f, 0.1f);
-    }
-
+    
 }
