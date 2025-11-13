@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ac59e680961074cadc226f5df4674d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SasjrDamage: 5
-  moveSpeed: 2
-  Attackrange: 2
+  SasjrDamage: 15
+  moveSpeed: 6
+  Attackrange: 4
   Attackcooldown: 1.5
 --- !u!114 &4572856186753324440
 MonoBehaviour:
