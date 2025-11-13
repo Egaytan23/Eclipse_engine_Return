@@ -12,14 +12,17 @@ public class Enemy_health : MonoBehaviour
     private Slider healthSlider;
     private Transform healthBarTransform;
 
+    //quick note: Quaternion is system used to represent rotations in 3D space, stops it from glitching or flipping (like we had before)
     void Start()
     {
         currentHealth = maxHealth;
         
         Debug.Log("Spawned enemy health bar for " + gameObject.name);
         GameObject EnemyHB = Instantiate(healthBarPrefab, transform.position + Vector3.up * 2.5f, Quaternion.identity);
+       
         EnemyHB.transform.localScale = Vector3.one * 0.02f; // fix scale
         EnemyHB.layer = LayerMask.NameToLayer("Default"); // ensure visible layer
+        EnemyHB.transform.rotation = Quaternion.identity; // reset rotation so it doesn't inherit enemy rotation quaternion.identity means no rotation
 
         healthBarTransform = EnemyHB.transform;
         healthSlider = EnemyHB.GetComponentInChildren<Slider>();
@@ -56,10 +59,11 @@ public class Enemy_health : MonoBehaviour
     }   
     void Update()
     {
-        if(healthBarTransform != null)
+        if(healthBarTransform != null) // makes sure the health bar still exists
         {
-            healthBarTransform.position = transform.position + Vector3.up * 2.5f;
-            healthBarTransform.LookAt(Camera.main.transform);
+            healthBarTransform.position = transform.position + Vector3.up * 2.5f; //follow enemy position
+
+            healthBarTransform.forward = -Camera.main.transform.forward; //face camera
 
         }
     }
