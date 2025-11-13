@@ -59,6 +59,7 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
+        if (PuaseScritp.isPaused) return;
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 6f / fireRate;

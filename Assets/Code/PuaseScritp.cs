@@ -7,17 +7,15 @@ using UnityEngine.UI;
 
 public class PuaseScritp : MonoBehaviour
 {
+    public static bool isPaused = false;
     [SerializeField] GameObject pauseMenu;
-    public Button ButtonMenu;
+    
 
-    bool isPaused = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
-
-        Button btm = ButtonMenu.GetComponent<Button>();
-        btm.onClick.AddListener(OnMenu);
     }
     // Update is called once per frame
     void Update()
@@ -53,9 +51,13 @@ public class PuaseScritp : MonoBehaviour
     public void OnMenu()
     {
         SceneManager.LoadScene("Main Menu");
-        Time.timeScale = 1.0f;
+        Debug.Log("Loading Menu");
     }
-
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+        Debug.Log("Quitting Game");
+    }
 
 
 }
