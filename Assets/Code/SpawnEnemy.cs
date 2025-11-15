@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -10,21 +11,22 @@ public class SpawnEnemy : MonoBehaviour
     public float timeBetweenSpawns = 0.25f; // Small delay between individual spawns in a wave (optional)
     private int currentWave = 1; // Current wave number
     private int enemimesAlive = 0; // Track number of alive enemies
+    public int totalWaves = 3; // Total number of waves to spawn
 
-    private Transform player;
+    private Transform player; // Reference to the player location
 
     void Start()
     {
         Debug.Log("Enemy prefabs count: " + enemyPrefabs.Length + ", spawn points count: " + spawnPoints.Length);
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
         Debug.Log("Spawner script started!");
-        StartCoroutine(SpawnWaves());
+        StartCoroutine(SpawnWaves()); // Start spawning waves
     }
 
 
-    IEnumerator SpawnWave(int enemyCount)
+    IEnumerator SpawnWave(int enemyCount) //
     {
-        Debug.Log("Spawning wave " + currentWave + " with " + enemyCount + " enemies.");
+        Debug.Log("Spawning wave " + currentWave + " with " + enemyCount + " enemies."); //enemyCount is passed from SpawnWaves Ie enemyCount = tospawn
 
         for (int i = 0; i < enemyCount; i++)
         {
@@ -43,12 +45,22 @@ public class SpawnEnemy : MonoBehaviour
         }
 
 
-    IEnumerator SpawnWaves() //IEnumerator allows for pausing execution and resuming later, important for timed events like spawning enemies
+    IEnumerator SpawnWaves() //
     {
-       
+        //IEnumerator allows for pausing execution and resuming later, important for timed events like spawning enemies
         while (true)
         {
             Debug.Log("Preparing to spawn wave " + currentWave);
+
+
+            if(currentWave > totalWaves)
+            {
+                Debug.Log("Game over! All waves completed.");
+                SceneManager.LoadScene("Win");
+                yield break; //stops the spawner
+
+
+            }
             
             int toSpawn = enemiesPerWave + (currentWave - 1) * 2; // Increase enemies per wave
 
@@ -58,6 +70,8 @@ public class SpawnEnemy : MonoBehaviour
             Debug.Log("Spawning wave " + currentWave);
 
             yield return StartCoroutine(SpawnWave(toSpawn));
+            
+            
             
             while (enemimesAlive > 0)
             {

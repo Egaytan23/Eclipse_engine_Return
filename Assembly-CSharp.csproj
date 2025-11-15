@@ -102,11 +102,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Code\ItemPickup.cs" />
     <Compile Include="Assets\Code\SpawnEnemy.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-=======
->>>>>>> d80814cfc912c08f0fd2ab6763ed8aac4753de0c
     <Compile Include="Assets\Code\PuaseScritp.cs" />
     <Compile Include="Assets\Code\EnemyDeathNotifier.cs" />
   </ItemGroup>

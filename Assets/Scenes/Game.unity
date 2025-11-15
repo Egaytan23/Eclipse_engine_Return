@@ -2045,8 +2045,9 @@ MonoBehaviour:
   - {fileID: 278635884}
   - {fileID: 870570498}
   timeBetweenWaves: 2
-  enemiesPerWave: 10
+  enemiesPerWave: 1
   timeBetweenSpawns: 1
+  totalWaves: 3
 --- !u!4 &1117492079
 Transform:
   m_ObjectHideFlags: 0
@@ -2889,7 +2890,7 @@ MonoBehaviour:
   fpsCam: {fileID: 726702444}
   bulletPrefab: {fileID: 2384133642343426184, guid: f195bb9a3e7258447a37420599485eac, type: 3}
   shootPoint: {fileID: 1306094515}
-  blulletSpeed: 10
+  blulletSpeed: 100
 --- !u!1 &1753213406
 GameObject:
   m_ObjectHideFlags: 0
