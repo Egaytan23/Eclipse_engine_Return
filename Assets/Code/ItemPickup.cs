@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool pickupRange = false;
+
+
+  
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            pickupRange = true;
+          
+            
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            pickupRange = false;
+           
+        }
+    }
+
+
     void Update()
     {
-        
+        if (pickupRange && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            WeaponController player = FindAnyObjectByType<WeaponController>();
+
+            if (player != null)
+            {
+                player.EquipWeapon(gameObject);
+            }
+        }
     }
 }

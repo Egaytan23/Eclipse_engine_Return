@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\spawnenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\spawnenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|c:\\users\\elvis\\onedrive\\desktop\\eclipse_engine_return\\assets\\code\\weaponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\weaponcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,12 +19,20 @@
       "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\enemy_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|c:\\users\\elvis\\onedrive\\desktop\\eclipse_engine_return\\assets\\code\\loadingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\loadingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\loadingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\puasescritp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\puasescritp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\itempickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\itempickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\spawnenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\spawnenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\enemydeathnotifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|solutionrelative:assets\\code\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{612DE9A4-36F0-C93D-1007-5C9FA4426413}|Assembly-CSharp.csproj|C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\assets\\code\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +62,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "WeaponController.cs",
+              "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\WeaponController.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\WeaponController.cs",
+              "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\WeaponController.cs",
+              "RelativeToolTip": "Assets\\Code\\WeaponController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAwwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T00:51:49.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ItemPickup.cs",
+              "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\ItemPickup.cs",
+              "RelativeDocumentMoniker": "Assets\\Code\\ItemPickup.cs",
+              "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\ItemPickup.cs",
+              "RelativeToolTip": "Assets\\Code\\ItemPickup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T03:46:49.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "PuaseScritp.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\PuaseScritp.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PuaseScritp.cs",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LoadingManager.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\LoadingManager.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\LoadingManager.cs",
@@ -84,58 +118,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Enemy_health.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Enemy_health.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Enemy_health.cs",
               "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Enemy_health.cs",
               "RelativeToolTip": "Assets\\Code\\Enemy_health.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwEIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T03:04:52.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Bullet.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Bullet.cs",
               "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Bullet.cs",
               "RelativeToolTip": "Assets\\Code\\Bullet.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T04:01:51.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Shooting.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Shooting.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\Shooting.cs",
               "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\Shooting.cs",
               "RelativeToolTip": "Assets\\Code\\Shooting.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwD0AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T03:23:01.218Z"
+              "WhenOpened": "2025-11-05T03:23:01.218Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "SpawnEnemy.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\SpawnEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\SpawnEnemy.cs",
               "ToolTip": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\SpawnEnemy.cs",
               "RelativeToolTip": "Assets\\Code\\SpawnEnemy.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwDoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwBwAAACXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T23:16:00.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T23:16:00.916Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PlayerCombat.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\PlayerCombat.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerCombat.cs",
@@ -147,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerHealth.cs",
@@ -155,12 +189,11 @@
               "RelativeToolTip": "Assets\\Code\\PlayerHealth.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-02T23:19:05.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-02T23:19:05.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "PlayerMovement.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\PlayerMovement.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\PlayerMovement.cs",
@@ -172,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "EnemyDeathNotifier.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\EnemyDeathNotifier.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\EnemyDeathNotifier.cs",
@@ -180,12 +213,11 @@
               "RelativeToolTip": "Assets\\Code\\EnemyDeathNotifier.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAwwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T03:26:22.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T03:26:22.739Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "SasquatchJr_Movement.cs",
               "DocumentMoniker": "C:\\Users\\elvis\\OneDrive\\Desktop\\Eclipse_engine_Return\\Assets\\Code\\SasquatchJr_Movement.cs",
               "RelativeDocumentMoniker": "Assets\\Code\\SasquatchJr_Movement.cs",
