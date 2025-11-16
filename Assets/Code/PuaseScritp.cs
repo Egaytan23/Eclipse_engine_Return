@@ -35,6 +35,13 @@ public class PuaseScritp : MonoBehaviour
         }
     }
 
+    public void RestartLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Game");
+        Debug.Log("Restarting game");
+    }
+
     public void Resume()
     {
         pauseMenu.SetActive(false);
