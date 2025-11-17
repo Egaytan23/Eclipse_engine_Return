@@ -38,7 +38,7 @@ public class PuaseScritp : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game_Teammate");
         Debug.Log("Restarting game");
     }
 
