@@ -5,9 +5,9 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public bool pickupRange = false;
+    
 
 
-  
     void Start()
     {
         
@@ -18,8 +18,6 @@ public class ItemPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pickupRange = true;
-          
-            
         }
     }
 
@@ -42,6 +40,17 @@ public class ItemPickup : MonoBehaviour
             if (player != null)
             {
                 player.EquipWeapon(gameObject);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            WeaponController player = FindAnyObjectByType<WeaponController>();
+            if (player != null)
+            {
+                if (player.currentWeapon == gameObject)
+                {
+                    player.DropWeapon();
+                }
             }
         }
     }
