@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     public int range = 100;
     public int fireRate = 15;
     public int damage = 40;
-
+    public AudioSource audioSource;
 
     public Camera fpsCam;
    
@@ -22,10 +22,13 @@ public class Shooting : MonoBehaviour
     private float nextTimeToFire = 0f;
     void Start()
     {
-        
-    }
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        }
 
-    void Shoot()
+    void Shoot(int dmg, float speed)
     {
         
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -39,15 +42,15 @@ public class Shooting : MonoBehaviour
             
             if(rb != null)
             {
-                rb.velocity = shootDir * blulletSpeed;
+                rb.velocity = shootDir * speed;
             }
 
-            Destroy(bullet, 2f);
+            Destroy(bullet, 1f);
         }
 
        
 
-        //Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, range))
@@ -58,7 +61,7 @@ public class Shooting : MonoBehaviour
 
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(dmg);
             }
 
             
@@ -66,12 +69,28 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
+        WeaponStats stats = null;
+        if(weaponController != null && weaponController.currentWeapon != null)
+        {
+            stats = weaponController.currentWeapon.GetComponent<WeaponStats>();
+        }
+
+
+        int dmg = (stats != null) ? stats.damage : damage;
+        float rate = (stats != null) ? stats.fireRate : fireRate;
+        float speed = (stats != null) ? stats.bulletSpeed : blulletSpeed;
+
         if (PuaseScritp.isPaused) return;
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 6f / fireRate;
-            Shoot();
+            nextTimeToFire = Time.time + (1f / rate);
+            if (stats != null && stats.shootSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(stats.shootSound, stats.volume);
+            }
+
+            Shoot(dmg, speed);
         }
     }
 }
