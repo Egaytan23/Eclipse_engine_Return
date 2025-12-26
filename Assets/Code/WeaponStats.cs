@@ -9,7 +9,15 @@ public class WeaponStats : MonoBehaviour
     public int bulletSpeed = 5;
 
     public AudioClip shootSound;
-    public float volume = 1f;
+    public float Shootvolume = 1f;
+
+    public AudioClip reloadSound; //WHERE THE SOUND IS LOCATED AND PULLED FROM IN SHOOT SCRIPT
+    public float reloadVolume = 1f;
+
+    public int magSize = 30;
+    public int reserveAmmo = 90;
+    public float reloadTime = 2f;
+
     void Start()
     {
         

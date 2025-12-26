@@ -20,17 +20,25 @@ public class Shooting : MonoBehaviour
     public Transform shootPoint;
 
     private float nextTimeToFire = 0f;
+
+    public int currentAmmo;
+    public int reserveAmmo;
+    public bool isReloading;
+
+    private GameObject lastWeapon;
     void Start()
     {
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
         }
+
+        SetupAmmo(true);
         }
 
     void Shoot(int dmg, float speed)
     {
-        
+
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 shootDir = ray.direction;
 
@@ -39,8 +47,8 @@ public class Shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
 
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            
-            if(rb != null)
+
+            if (rb != null)
             {
                 rb.velocity = shootDir * speed;
             }
@@ -48,15 +56,15 @@ public class Shooting : MonoBehaviour
             Destroy(bullet, 1f);
         }
 
-       
 
-        
+
+
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, range))
         {
             Debug.Log(hit.transform.name);
-            
+
             Enemy_health target = hit.transform.GetComponent<Enemy_health>();
 
             if (target != null)
@@ -64,11 +72,76 @@ public class Shooting : MonoBehaviour
                 target.TakeDamage(dmg);
             }
 
-            
+
+        }
+
+        
+
+        
+
+       
+    }
+
+    IEnumerator ReloadRoutine(WeaponStats stats)
+    {
+        isReloading = true;
+
+        if (audioSource != null && stats.reloadSound != null)
+        {
+            audioSource.PlayOneShot(stats.reloadSound, stats.reloadVolume);
+            yield return new WaitForSeconds(stats.reloadTime);
+
+            int needed = stats.magSize - currentAmmo;
+            int toLoad = Mathf.Min(needed, reserveAmmo);
+
+            currentAmmo += toLoad;
+            reserveAmmo -= toLoad;
+            isReloading = false;
         }
     }
+
+    void TryReload(WeaponStats stats)
+    {
+        if (isReloading) return;
+        if (stats == null) return;
+        if (currentAmmo >= stats.magSize) return;
+        if (reserveAmmo <= 0) return;
+
+        StartCoroutine(ReloadRoutine(stats));
+    }
+
+    void SetupAmmo(bool force)
+    {
+        GameObject w = (weaponController != null) ? weaponController.currentWeapon : null;
+
+        if (!force && w == lastWeapon) return;
+        {
+            
+            lastWeapon = w;
+        }
+
+        if (w == null)
+        {
+            currentAmmo = 0;
+            reserveAmmo = 0;
+            isReloading = false;
+            return;
+        }
+        WeaponStats stats = w.GetComponent<WeaponStats>();
+        if (stats == null) return;
+        {
+            
+            currentAmmo = stats.magSize;
+            reserveAmmo = stats.reserveAmmo;
+            isReloading = false;
+        }
+    }
+
     void Update()
     {
+        if (PuaseScritp.isPaused) return;
+        SetupAmmo(false); //reset ammo when weapon changes
+
         WeaponStats stats = null;
         if(weaponController != null && weaponController.currentWeapon != null)
         {
@@ -80,14 +153,29 @@ public class Shooting : MonoBehaviour
         float rate = (stats != null) ? stats.fireRate : fireRate;
         float speed = (stats != null) ? stats.bulletSpeed : blulletSpeed;
 
-        if (PuaseScritp.isPaused) return;
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            TryReload(stats);
+        }
+
+        if (isReloading)
+            return;
+
+        if (currentAmmo <= 0)
+        {
+            TryReload(stats);
+            return;
+        }
+
 
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + (1f / rate);
+            currentAmmo--;
+
             if (stats != null && stats.shootSound != null && audioSource != null)
             {
-                audioSource.PlayOneShot(stats.shootSound, stats.volume);
+                audioSource.PlayOneShot(stats.shootSound, stats.Shootvolume);
             }
 
             Shoot(dmg, speed);
