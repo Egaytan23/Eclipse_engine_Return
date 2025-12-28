@@ -4001,6 +4001,8 @@ MonoBehaviour:
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 5e3c1fa5e8077c84fb4f8a5c69de6249, type: 3}
   reloadVolume: 1
+  holdLocalPosition: {x: 0, y: 0, z: 0}
+  holdlocalEuler: {x: 0, y: 0, z: 0}
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
@@ -8970,6 +8972,8 @@ MonoBehaviour:
   Shootvolume: 1
   reloadSound: {fileID: 0}
   reloadVolume: 1
+  holdLocalPosition: {x: 0, y: -0.2, z: 0}
+  holdlocalEuler: {x: 0, y: 0, z: 0}
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
@@ -33033,6 +33037,8 @@ MonoBehaviour:
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 3b4644cb917e85448804996ac5c753a5, type: 3}
   reloadVolume: 1
+  holdLocalPosition: {x: 0, y: 0, z: 0}
+  holdlocalEuler: {x: 0, y: 0, z: 0}
   magSize: 12
   reserveAmmo: 60
   reloadTime: 2

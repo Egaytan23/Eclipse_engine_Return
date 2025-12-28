@@ -32,11 +32,12 @@ public class WeaponController : MonoBehaviour
         //move weapon to weapon holder
         weapon.transform.SetParent(weaponHolder);
        
-        Transform hold = weapon.transform.Find("HoldPoint");
-        if (hold != null)
+        WeaponStats stats = weapon.GetComponent<WeaponStats>();
+
+        if (stats != null)
         {
-            weapon.transform.localPosition = -hold.localPosition;
-            weapon.transform.localRotation = Quaternion.Inverse(hold.localRotation);
+            weapon.transform.localPosition = stats.holdLocalPosition;
+            weapon.transform.localRotation = Quaternion.Euler(stats.holdlocalEuler);
         }
         else
         {

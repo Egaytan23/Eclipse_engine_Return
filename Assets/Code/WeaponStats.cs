@@ -14,6 +14,9 @@ public class WeaponStats : MonoBehaviour
     public AudioClip reloadSound; //WHERE THE SOUND IS LOCATED AND PULLED FROM IN SHOOT SCRIPT
     public float reloadVolume = 1f;
 
+    public Vector3 holdLocalPosition;
+    public Vector3 holdlocalEuler;
+
     public int magSize = 30;
     public int reserveAmmo = 90;
     public float reloadTime = 2f;
