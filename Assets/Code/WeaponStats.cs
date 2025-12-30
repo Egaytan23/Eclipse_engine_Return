@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponStats : MonoBehaviour
 {
+    public GameObject projectilePrefab; //bullet or rocket prefab
     public int damage = 40;
     public int fireRate = 15;
     public int bulletSpeed = 5;

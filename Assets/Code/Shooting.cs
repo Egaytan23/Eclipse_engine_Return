@@ -12,9 +12,9 @@ public class Shooting : MonoBehaviour
     public AudioSource audioSource;
 
     public Camera fpsCam;
-   
 
-    public GameObject bulletPrefab;
+
+    public GameObject projectilePrefab;
     
     public float blulletSpeed = 5f;
     public Transform shootPoint;
@@ -36,26 +36,25 @@ public class Shooting : MonoBehaviour
         SetupAmmo(true);
         }
 
-    void Shoot(int dmg, float speed)
+    void Shoot(WeaponStats stats, int dmg, float speed)
     {
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 shootDir = ray.direction;
 
-        if (bulletPrefab != null && shootPoint != null)
+        if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
-            GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
+            GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
 
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            Rigidbody rb = proj.GetComponent<Rigidbody>();
 
             if (rb != null)
             {
                 rb.velocity = shootDir * speed;
             }
 
-            Destroy(bullet, 1f);
+            Destroy(proj, 1f);
         }
-
 
 
 
@@ -74,12 +73,6 @@ public class Shooting : MonoBehaviour
 
 
         }
-
-        
-
-        
-
-       
     }
 
     IEnumerator ReloadRoutine(WeaponStats stats)
@@ -178,7 +171,7 @@ public class Shooting : MonoBehaviour
                 audioSource.PlayOneShot(stats.shootSound, stats.Shootvolume);
             }
 
-            Shoot(dmg, speed);
+            Shoot(stats, dmg, speed);
         }
     }
 }
