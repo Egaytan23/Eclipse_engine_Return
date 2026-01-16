@@ -4029,7 +4029,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2384133642343426184, guid: f195bb9a3e7258447a37420599485eac, type: 3}
   damage: 40
   fireRate: 5
-  bulletSpeed: 10
+  bulletSpeed: 15
   shootSound: {fileID: 8300000, guid: b183d7b5e1b3e954abf1366511a42e2e, type: 3}
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 5e3c1fa5e8077c84fb4f8a5c69de6249, type: 3}
@@ -4189,7 +4189,7 @@ Transform:
   m_GameObject: {fileID: 351241335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.0017452955, w: 0.9999985}
-  m_LocalPosition: {x: 1.1228676, y: -0.012415151, z: -0.00091207644}
+  m_LocalPosition: {x: 0.206, y: -0.013, z: 0.0094}
   m_LocalScale: {x: 20.050714, y: 3.1574526, z: 1.489016}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9000,7 +9000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1739836834639240213, guid: d4f96d007cf475d4cbe90087db360242, type: 3}
   damage: 40
-  fireRate: 15
+  fireRate: 3
   bulletSpeed: 5
   shootSound: {fileID: 0}
   Shootvolume: 1
@@ -14895,7 +14895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.046
+      value: -24.419498
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14903,23 +14903,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.497578
+      value: 25.612251
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.26243192
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.96495056
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14927,7 +14927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -149.571
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -14936,6 +14936,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
       propertyPath: m_Name
       value: Lazer pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652011956315678642, guid: af2fcf0ded70b144c93ff6365eca67cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0036
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23040,7 +23044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1117492078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33106,7 +33110,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2384133642343426184, guid: f195bb9a3e7258447a37420599485eac, type: 3}
   damage: 25
   fireRate: 5
-  bulletSpeed: 5
+  bulletSpeed: 15
   shootSound: {fileID: 8300000, guid: ebb9b4cb56565864b8396fc65d17a9ed, type: 3}
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 3b4644cb917e85448804996ac5c753a5, type: 3}

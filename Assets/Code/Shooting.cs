@@ -53,7 +53,7 @@ public class Shooting : MonoBehaviour
                 rb.velocity = shootDir * speed;
             }
 
-            Destroy(proj, 1f);
+            Destroy(proj, 5f);
         }
 
 

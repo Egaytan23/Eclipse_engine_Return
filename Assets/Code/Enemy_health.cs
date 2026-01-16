@@ -39,6 +39,7 @@ public class Enemy_health : MonoBehaviour
 
         if(healthSlider != null)
         {
+           
             healthSlider.value = currentHealth;
         }
 
