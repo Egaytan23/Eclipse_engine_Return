@@ -5995,6 +5995,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6492382536077813510, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d87ee6bd35fb32b46a9fde6469bc4854, type: 2}
     - target: {fileID: 919132149155446097, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
       propertyPath: m_Name
       value: Game469MainStoreArea
@@ -14867,7 +14871,7 @@ Transform:
   m_GameObject: {fileID: 638644292}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.67168796, z: -0, w: 0.7408342}
-  m_LocalPosition: {x: 0, y: -0.025, z: 0.0042476654}
+  m_LocalPosition: {x: -0.029, y: -0.025, z: -0.288}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23044,7 +23048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1117492078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42176,6 +42180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.479
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a2718627921a94743977d729f4cd173d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71a6b07b10531c64c9c0a2a796169219, type: 2}
     - target: {fileID: 919132149155446097, guid: a2718627921a94743977d729f4cd173d, type: 3}
       propertyPath: m_Name
       value: StoreLotSignfbx

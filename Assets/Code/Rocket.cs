@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,70 +10,95 @@ public class Rocket : MonoBehaviour
     public float explosionDamage = 50f;
     public float lifetime = 5f;
     public float upwardModifier = 0.3f;
+    bool armed = false;
 
     Rigidbody rb;
     Collider myCol;
+    Transform ownerRoot;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         myCol = GetComponent<Collider>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if(player != null && myCol != null)
+
+       
+        rb.velocity = transform.forward * speed;
+        
+        Destroy(gameObject, lifetime);
+        StartCoroutine(ArmAfterDelay());
+    }
+
+    public void Init(Transform owner)
+    {
+        ownerRoot = owner;
+
+        if (myCol != null && ownerRoot != null)
         {
-            foreach (Collider c in player.GetComponentsInChildren<Collider>())
+            foreach (Collider c in ownerRoot.GetComponentsInChildren<Collider>())
             {
                 Physics.IgnoreCollision(myCol, c, true);
             }
         }
-        rb.useGravity = false;
-        rb.velocity = transform.forward * speed;
-        Destroy(gameObject, lifetime);
+    }
+
+    IEnumerator ArmAfterDelay()
+    {
+        yield return new WaitForSeconds(0.05f);
+        armed = true;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.isTrigger)
+        if (!armed)
         {
             return;
         }
 
-        Explode();
+        if (collision.collider.isTrigger)
+        {
+            return;
+        }
+
+        Explode(collision.contacts[0].point);
     }
 
-    void Explode()
+    void Explode(Vector3 center)
     {
+        Debug.Log("ROCKET exploding at " + transform.position);
+
         Collider[] hits = Physics.OverlapSphere(transform.position, explosionRadius);
 
-        HashSet<Enemy_health> damagedEnemies = new HashSet<Enemy_health>(); // To avoid double damage
+        HashSet<Enemy_health> damagedEnemies = new HashSet<Enemy_health>();
+        HashSet<Rigidbody> pushed = new HashSet<Rigidbody>(); // ✅ moved OUTSIDE loop
 
         foreach (Collider hit in hits)
         {
+            // Damage
             Enemy_health enemy = hit.GetComponentInParent<Enemy_health>();
-            if (enemy != null && !damagedEnemies.Contains(enemy))
+            if (enemy != null && damagedEnemies.Add(enemy))
             {
-                damagedEnemies.Add(enemy);
+                Debug.Log("ROCKET damaging: " + enemy.gameObject.name);
                 enemy.TakeDamage((int)explosionDamage);
             }
-            HashSet<Rigidbody> pushed = new HashSet<Rigidbody>();
-            Rigidbody hitRb = hit.attachedRigidbody; // Get the Rigidbody attached to the collider
-            if (hitRb != null && !pushed.Contains(hitRb))
+
+            // Push
+            Rigidbody hitRb = hit.attachedRigidbody;
+            if (hitRb != null && pushed.Add(hitRb))
             {
-                pushed.Add(hitRb);
                 hitRb.AddExplosionForce(
-                    explosionForce, 
-                    transform.position, 
+                    explosionForce,
+                    transform.position,
                     explosionRadius,
-                    upwardModifier, 
-                    ForceMode.Impulse 
-                    );
+                    upwardModifier,
+                    ForceMode.Impulse
+                );
             }
-           
         }
 
         Destroy(gameObject);
-
     }
-    
+
+
 
     // Update is called once per frame
     void Update()

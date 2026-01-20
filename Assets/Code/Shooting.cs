@@ -45,6 +45,12 @@ public class Shooting : MonoBehaviour
         if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
+            
+            Rocket r = proj.GetComponent<Rocket>();
+            if (r != null)
+            {
+                r.Init(transform.root);
+            }
 
             Rigidbody rb = proj.GetComponent<Rigidbody>();
 
@@ -72,7 +78,7 @@ public class Shooting : MonoBehaviour
             }
 
 
-        }
+        } 
     }
 
     IEnumerator ReloadRoutine(WeaponStats stats)
