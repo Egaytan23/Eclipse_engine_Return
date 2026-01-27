@@ -19,7 +19,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PuaseScritp.isPaused) return;
+        if (GameUIController.isPaused) return;
         if (Input.GetMouseButtonDown(0) && Time.time >= nextAttackTime)  // 0 = left click 1 = right click 2 = middle click  
         {                                                               // >= enough time has passed <= not enough time has passed
             Attack();                                                    //mousebuttondown is the isntant its pressed (getmousebutton is true while you hold it)   

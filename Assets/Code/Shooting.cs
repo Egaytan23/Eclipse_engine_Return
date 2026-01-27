@@ -138,7 +138,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (PuaseScritp.isPaused) return;
+        if (GameUIController.isPaused) return;
         SetupAmmo(false); //reset ammo when weapon changes
 
         WeaponStats stats = null;
