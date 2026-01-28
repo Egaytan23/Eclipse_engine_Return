@@ -4,10 +4,14 @@ using UnityEngine.SceneManagement;
 public class GameUIController : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject howToPlayPanel;
+
     private KeyCode pauseKey = KeyCode.Escape;
 
     public string ReturnGameName = "Game_Teammate";
     public string ReturnMenuName = "Main Menu";
+
 
     public static bool isPaused;
 
@@ -42,7 +46,7 @@ public class GameUIController : MonoBehaviour
             isPaused = false;
         }
     }
-
+   
     public void PauseGame()
     {
         if (pausePanel == null) return;
@@ -66,6 +70,20 @@ public class GameUIController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(ReturnMenuName);
     }
+
+    public void ShowHowToPlay()
+    {
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
+        if (howToPlayPanel != null) howToPlayPanel.SetActive(true);
+    }
+
+    public void BackToMainMenuUI()
+    {
+        if (howToPlayPanel != null) howToPlayPanel.SetActive(false);
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
+    }
+
+
 
     public void QuitGame()
     {
