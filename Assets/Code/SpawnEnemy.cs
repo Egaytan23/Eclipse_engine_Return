@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;// For UI text updates
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SpawnEnemy : MonoBehaviour
     private int currentWave = 1; // Current wave number
     private int enemimesAlive = 0; // Track number of alive enemies
     public int totalWaves = 3; // Total number of waves to spawn
+    public TextMeshProUGUI waveText; // UI text element to display wave information
 
     private Transform player; // Reference to the player location
 
@@ -20,9 +22,18 @@ public class SpawnEnemy : MonoBehaviour
         Debug.Log("Enemy prefabs count: " + enemyPrefabs.Length + ", spawn points count: " + spawnPoints.Length);
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
         Debug.Log("Spawner script started!");
+        UpdateWaveUI(); // Update the UI with the initial wave number
         StartCoroutine(SpawnWaves()); // Start spawning waves
     }
 
+
+    void UpdateWaveUI()
+    {
+        if (waveText != null)
+        {
+            waveText.text = "Wave: " + currentWave + " / " + totalWaves;
+        }
+    }
 
     IEnumerator SpawnWave(int enemyCount) //
     {
@@ -79,6 +90,7 @@ public class SpawnEnemy : MonoBehaviour
             }
             Debug.Log("Wave " + currentWave + " completed!");
             currentWave++;
+            UpdateWaveUI(); // Update the UI with the new wave number
             yield return new WaitForSeconds(timeBetweenWaves);
         }
     }

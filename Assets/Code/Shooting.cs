@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class Shooting : MonoBehaviour
     public int reserveAmmo;
     public bool isReloading;
 
+    public TextMeshProUGUI ammoText;
+
     private GameObject lastWeapon;
     void Start()
     {
@@ -34,6 +37,8 @@ public class Shooting : MonoBehaviour
         }
 
         SetupAmmo(true);
+
+        UpdateAmmoUI();
         }
 
     void Shoot(WeaponStats stats, int dmg, float speed)
@@ -81,6 +86,29 @@ public class Shooting : MonoBehaviour
         } 
     }
 
+
+    void Melee(WeaponStats stats)
+    {
+
+        if (stats == null) return;
+        {
+            Debug.Log("Melee range = " + stats.RangeAttack);
+
+            Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+
+            if (Physics.Raycast(ray, out RaycastHit hit, stats.RangeAttack))
+            {
+                Debug.Log(hit.transform.name);
+                Enemy_health target = hit.transform.GetComponent<Enemy_health>();
+                if (target != null)
+                {
+                    target.TakeDamage(stats.damage);
+                }
+            }
+        }
+
+    }
+
     IEnumerator ReloadRoutine(WeaponStats stats)
     {
         isReloading = true;
@@ -95,8 +123,10 @@ public class Shooting : MonoBehaviour
 
             currentAmmo += toLoad;
             reserveAmmo -= toLoad;
-            isReloading = false;
+            UpdateAmmoUI();
+            
         }
+        isReloading = false;
     }
 
     void TryReload(WeaponStats stats)
@@ -124,6 +154,7 @@ public class Shooting : MonoBehaviour
             currentAmmo = 0;
             reserveAmmo = 0;
             isReloading = false;
+            UpdateAmmoUI();
             return;
         }
         WeaponStats stats = w.GetComponent<WeaponStats>();
@@ -133,6 +164,15 @@ public class Shooting : MonoBehaviour
             currentAmmo = stats.magSize;
             reserveAmmo = stats.reserveAmmo;
             isReloading = false;
+            UpdateAmmoUI();
+        }
+    }
+
+    void UpdateAmmoUI()
+    {
+        if (ammoText != null)
+        {
+            ammoText.text = currentAmmo + " / " + reserveAmmo;
         }
     }
 
@@ -167,17 +207,34 @@ public class Shooting : MonoBehaviour
         }
 
 
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire) //player performed an attack input
         {
+            if (stats == null) return;
+
             nextTimeToFire = Time.time + (1f / rate);
-            currentAmmo--;
 
-            if (stats != null && stats.shootSound != null && audioSource != null)
+            if(stats.isMelee)
             {
+                Melee(stats);
                 audioSource.PlayOneShot(stats.shootSound, stats.Shootvolume);
-            }
+                Debug.Log("Melee attack");
 
-            Shoot(stats, dmg, speed);
+            }
+            else
+            {
+                currentAmmo--;
+                UpdateAmmoUI();
+                Debug.Log("Shoot attack");
+
+                if (stats.shootSound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(stats.shootSound, stats.Shootvolume);
+                }
+                Shoot(stats, dmg, speed);
+
+            }
         }
+
+                
     }
 }

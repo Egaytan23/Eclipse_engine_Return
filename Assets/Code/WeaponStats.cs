@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class WeaponStats : MonoBehaviour
 {
@@ -18,14 +20,21 @@ public class WeaponStats : MonoBehaviour
     public Vector3 holdLocalPosition;
     public Vector3 holdlocalEuler;
 
+    public float RangeAttack = 2;
+    public bool isMelee = false;
+
     public int magSize = 30;
     public int reserveAmmo = 90;
     public float reloadTime = 2f;
 
+   
+
     void Start()
     {
-        
+       
     }
+
+   
 
     // Update is called once per frame
     void Update()

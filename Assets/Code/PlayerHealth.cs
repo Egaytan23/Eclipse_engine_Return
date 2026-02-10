@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     public Slider HealthBar;
     
-
     void Start()
     {
         currentHealth = maxHealth;
@@ -39,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+       
         Destroy(gameObject);
         SceneManager.LoadScene("Lose");
     }
