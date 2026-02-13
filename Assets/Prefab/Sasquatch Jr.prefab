@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3120265065994267771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.66, y: -1, z: -30.19}
+  m_LocalPosition: {x: -12.66, y: 5.86, z: -30.19}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,7 +101,7 @@ CapsuleCollider:
   m_Radius: 0.8380804
   m_Height: 3.3523216
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0.6761608}
+  m_Center: {x: 0, y: -1, z: -2}
 --- !u!54 &1952217742381249908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SasjrDamage: 6
   moveSpeed: 4
-  Attackrange: 3.2
+  Attackrange: 1
   Attackcooldown: 2
 --- !u!114 &4572856186753324440
 MonoBehaviour:

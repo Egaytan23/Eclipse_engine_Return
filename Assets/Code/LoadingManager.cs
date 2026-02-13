@@ -11,7 +11,7 @@ public class LoadLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+      OnGame();
     }
 
     public void OnGame()

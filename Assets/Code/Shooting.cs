@@ -64,7 +64,7 @@ public class Shooting : MonoBehaviour
                 rb.velocity = shootDir * speed;
             }
 
-            Destroy(proj, 5f);
+            Destroy(proj, 2f);
         }
 
 
@@ -207,7 +207,7 @@ public class Shooting : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToFire) //player performed an attack input
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire) //player performed an attack input
         {
             if (stats == null) return;
 

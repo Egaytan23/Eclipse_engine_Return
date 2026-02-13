@@ -83,6 +83,16 @@ public class GameUIController : MonoBehaviour
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
     }
 
+    public void LoadLoseScreen()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        SceneManager.LoadScene("Lose");
+    }
 
 
     public void QuitGame()

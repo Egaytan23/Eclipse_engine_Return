@@ -147,12 +147,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171505798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ecd947d970d3f245bc04f6eb3f05077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 482282064}
+  mainMenuPanel: {fileID: 0}
+  howToPlayPanel: {fileID: 0}
   ReturnGameName: Game_Teammate
   ReturnMenuName: Main Menu
 --- !u!4 &171505800
@@ -276,7 +278,6 @@ GameObject:
   - component: {fileID: 482282068}
   - component: {fileID: 482282067}
   - component: {fileID: 482282066}
-  - component: {fileID: 482282065}
   - component: {fileID: 482282071}
   - component: {fileID: 482282070}
   m_Layer: 5
@@ -286,18 +287,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &482282065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482282064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c1bbdb1ee6025948b4b067c7fc1d308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &482282066
 MonoBehaviour:
   m_ObjectHideFlags: 0

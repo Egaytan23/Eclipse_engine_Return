@@ -10,7 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
     public Slider HealthBar;
-    
+    public AudioSource audioSource;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -41,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
        
         Destroy(gameObject);
-        SceneManager.LoadScene("Lose");
+        FindObjectOfType<GameUIController>().LoadLoseScreen();
     }
     
     void Update()
