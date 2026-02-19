@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.007879374, g: 0.010931711, b: 0.018628655, a: 1}
+  m_IndirectSpecularColor: {r: 0.007879369, g: 0.0109317, b: 0.018628651, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41896,6 +41896,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 50416e577869acb4baac2d7c548990ab, type: 3}
   m_PrefabInstance: {fileID: 1759905208}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1766106123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 483.96094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 483.96094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 483.96094
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.17765
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.27
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.0242
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
+      propertyPath: m_Name
+      value: Eye ball enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96dd1a9abf6c40a4f96ca8e321e7991b, type: 3}
 --- !u!1 &1770888132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5933587891168586246, guid: 487ab72a6e105e3479239cd20a42de61, type: 3}
@@ -51093,3 +51162,4 @@ SceneRoots:
   - {fileID: 861285355}
   - {fileID: 2135519320}
   - {fileID: 600255699}
+  - {fileID: 1766106123}
