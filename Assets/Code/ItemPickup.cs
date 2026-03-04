@@ -50,6 +50,7 @@ public class ItemPickup : MonoBehaviour
                 if (player.currentWeapon == gameObject)
                 {
                     player.DropWeapon();
+                    
                 }
             }
         }
