@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.007879374, g: 0.010931711, b: 0.018628655, a: 1}
+  m_IndirectSpecularColor: {r: 0.007983544, g: 0.0109171495, b: 0.01877099, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -986,6 +986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2242,6 +2246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2334,7 +2342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4568,6 +4576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4781,6 +4793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6339,14 +6355,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7845142056178537756, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b99997616b500a48b9b2cacbefacbd9, type: 2}
+    - target: {fileID: -7022930613195446249, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b99997616b500a48b9b2cacbefacbd9, type: 2}
+    - target: {fileID: -6902573867230041995, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
     - target: {fileID: -6492382536077813510, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d87ee6bd35fb32b46a9fde6469bc4854, type: 2}
+      objectReference: {fileID: 2100000, guid: db79a911efc760f478bca24e263a9f84, type: 2}
+    - target: {fileID: -1878952166831381465, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 3905130374617866086, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+    - target: {fileID: -1439730007547781893, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
     - target: {fileID: 919132149155446097, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
       propertyPath: m_Name
       value: Game469MainStoreArea
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
+    - target: {fileID: 6944656104360116776, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 23ddff636e45a2a46ac817e0d5495d7b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2bb855d587abfb42ad3ca2834b2071f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15560,6 +15612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15821,6 +15877,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16063,7 +16123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17221,6 +17281,86 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.037406653, y: 0.0015051273, z: 0.05172574}
   m_Center: {x: -0.015244097, y: -0.000000029802322, z: 0.011007415}
+--- !u!1001 &837922911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.341229
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.880373
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2727235258800905535, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2727235258800905535, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2727235258800905535, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2727235258800905535, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2727235258800905535, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 047c007d6f48dd3449d78b11e47fe6e7, type: 2}
+    - target: {fileID: 919132149155446097, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+      propertyPath: m_Name
+      value: stopsign
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+    - {fileID: -8700617353114198275, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+    - {fileID: 5958908599641119965, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc331b1a8fca8254fb6672d0720bee69, type: 3}
 --- !u!1 &847821330
 GameObject:
   m_ObjectHideFlags: 0
@@ -17274,7 +17414,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22935,6 +23075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23000,6 +23144,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GarbageContainerfbx
       objectReference: {fileID: 0}
+    - target: {fileID: 7211777291109781255, guid: 5fb31658452917841aefad9111c0790e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
+    - target: {fileID: 8513626899920246884, guid: 5fb31658452917841aefad9111c0790e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23949,6 +24101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24228,6 +24384,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 198.139
       objectReference: {fileID: 0}
+    - target: {fileID: 7211777291109781255, guid: 5fb31658452917841aefad9111c0790e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
+    - target: {fileID: 8513626899920246884, guid: 5fb31658452917841aefad9111c0790e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -24308,6 +24472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27451,6 +27619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30722,6 +30894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30850,7 +31026,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19a8f3295c7b5a643a9a4f2491b55a15, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36045,6 +36221,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1521087723
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.66074
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10012913
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.753045
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
+      propertyPath: m_Name
+      value: stopsign (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa0237681e55a564f85f0da4edcb9a63, type: 3}
 --- !u!1001 &1551542253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36813,6 +37046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38311,6 +38548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43540,6 +43781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43802,6 +44047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47272,6 +47521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47337,6 +47590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49852,6 +50109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game469Fence.blend1
       objectReference: {fileID: 0}
+    - target: {fileID: 3855073655484056057, guid: 4c72ddf773d96764eb2171d2bfc7cc94, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d35cae87c2ac34eb849bd2613359d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51093,3 +51354,5 @@ SceneRoots:
   - {fileID: 861285355}
   - {fileID: 2135519320}
   - {fileID: 600255699}
+  - {fileID: 837922911}
+  - {fileID: 1521087723}
