@@ -19,7 +19,7 @@ public class Ammo : MonoBehaviour
         {
             shooting = collision.GetComponent<Shooting>(); // Get the Shooting component from the player object
             AddAmmoToWeapon();
-            Debug.Log("Added " + ammoAmount + " ammo to weapon");
+            Destroy(gameObject); // Destroy the ammo pickup object after adding ammo to the player's weapon
         }
     }
     public void AddAmmoToWeapon() // Method to add ammo to the player's weapon
