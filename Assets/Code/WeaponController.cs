@@ -25,9 +25,17 @@ public class WeaponController : MonoBehaviour
         // disables physics and collider
         Rigidbody rb = weapon.GetComponent<Rigidbody>();
         Collider col = weapon.GetComponent<Collider>();
-        rb.isKinematic = true; // Disable physics
-        col.enabled = true; 
-        col.isTrigger = true; 
+
+        if (rb != null)
+        {
+            rb.isKinematic = true; // Disable physics
+        }
+
+        if (col != null)
+        {
+            col.isTrigger = false; //keeps it a normal collider 
+            col.enabled = false; // Disable collider
+        }
 
         //move weapon to weapon holder
         weapon.transform.SetParent(weaponHolder);
@@ -85,7 +93,7 @@ public class WeaponController : MonoBehaviour
         if(col != null)
         {
             col.enabled = true; 
-            col.isTrigger = false;
+            col.isTrigger = true;
         }
         Shooting shooting = FindAnyObjectByType<Shooting>();
         if(shooting != null)

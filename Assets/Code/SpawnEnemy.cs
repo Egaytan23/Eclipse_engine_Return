@@ -19,9 +19,9 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Enemy prefabs count: " + enemyPrefabs.Length + ", spawn points count: " + spawnPoints.Length);
+       
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
-        Debug.Log("Spawner script started!");
+       
         UpdateWaveUI(); // Update the UI with the initial wave number
         StartCoroutine(SpawnWaves()); // Start spawning waves
     }

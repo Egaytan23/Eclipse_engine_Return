@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public float currentHealth;
     public Slider HealthBar;
-    public AudioSource audioSource;
+    public AudioSource AudioSource;
+   
 
     void Start()
     {
+        AudioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         HealthBar.maxValue = maxHealth;
         HealthBar.value = currentHealth; 
@@ -23,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        AudioSource.Play();
         HealthBar.value = currentHealth;
 
         if(currentHealth <= 0)
@@ -31,12 +34,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void Heal(int amount)
-    {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth,0, maxHealth);
-        HealthBar.value = currentHealth;
-    }
 
     void Die()
     {

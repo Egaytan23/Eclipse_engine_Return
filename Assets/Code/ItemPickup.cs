@@ -5,12 +5,13 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public bool pickupRange = false;
+    private Light pickUplight;
     
 
 
     void Start()
     {
-        
+        pickUplight = GetComponentInChildren<Light>(); // Assuming the light is a child of the item
     }
 
     void OnTriggerEnter(Collider other)
@@ -26,7 +27,8 @@ public class ItemPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pickupRange = false;
-           
+            
+
         }
     }
 
@@ -40,6 +42,7 @@ public class ItemPickup : MonoBehaviour
             if (player != null)
             {
                 player.EquipWeapon(gameObject);
+                pickUplight.enabled = false; // Turn off the light when the player leaves the pickup range
             }
         }
         if (Input.GetKeyDown(KeyCode.G))
@@ -50,6 +53,7 @@ public class ItemPickup : MonoBehaviour
                 if (player.currentWeapon == gameObject)
                 {
                     player.DropWeapon();
+                    pickUplight.enabled = true; // Turn off the light when the player leaves the pickup range
                 }
             }
         }
