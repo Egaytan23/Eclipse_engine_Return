@@ -7,8 +7,7 @@ public class Enemy_health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-
-    public GameObject healthBarPrefab;
+    public GameObject Numbers;
     private Slider healthSlider;
     private Transform healthBarTransform;
 
@@ -16,19 +15,14 @@ public class Enemy_health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        
-        Debug.Log("Spawned enemy health bar for " + gameObject.name);
-        GameObject EnemyHB = Instantiate(healthBarPrefab, transform.position + Vector3.up * 2.5f, Quaternion.identity);
-       
-        EnemyHB.transform.localScale = Vector3.one * 0.02f; // fix scale
-        EnemyHB.layer = LayerMask.NameToLayer("Default"); // ensure visible layer
-        EnemyHB.transform.rotation = Quaternion.identity; // reset rotation so it doesn't inherit enemy rotation quaternion.identity means no rotation
-
-        healthBarTransform = EnemyHB.transform;
-        healthSlider = EnemyHB.GetComponentInChildren<Slider>();
-
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
+    }
+
+    public void DropItem()
+    {
+        Debug.Log("Dropping item");
+        GameObject item = Instantiate(Numbers, transform.position, Quaternion.identity);    
     }
 
     public void TakeDamage(int damageAmount)
@@ -46,6 +40,7 @@ public class Enemy_health : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            DropItem();
         }
     }
 
@@ -55,6 +50,7 @@ public class Enemy_health : MonoBehaviour
         if(healthBarTransform != null)
         {
             Destroy(healthBarTransform.gameObject);
+       
         }
         Destroy(gameObject);
     }   
