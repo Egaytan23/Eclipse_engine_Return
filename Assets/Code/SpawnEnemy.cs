@@ -16,6 +16,7 @@ public class SpawnEnemy : MonoBehaviour
     public TextMeshProUGUI waveText; // UI text element to display wave information
 
     private Transform player; // Reference to the player location
+   
 
     void Start()
     {
@@ -45,7 +46,12 @@ public class SpawnEnemy : MonoBehaviour
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
   
             GameObject enemy = Instantiate(prefab, spawnPoint.position + Vector3.up * 1.2f,spawnPoint.rotation);
-
+            SasquatchJr_Movement enemyStats = enemy.GetComponent<SasquatchJr_Movement>();
+           
+           
+            enemyStats.SasjrDamage += (currentWave - 1) * 2; // baseDamage + (currentWave - 1) * increasePerWave += adds to
+            Debug.Log("Spawned enemy with damage: " + enemyStats.SasjrDamage);
+            
             enemimesAlive++;
 
             EnemyDeathNotifier notifier = enemy.AddComponent<EnemyDeathNotifier>();
