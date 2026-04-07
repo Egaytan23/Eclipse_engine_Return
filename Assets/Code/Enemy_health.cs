@@ -10,10 +10,12 @@ public class Enemy_health : MonoBehaviour
     public GameObject Numbers;
     private Slider healthSlider;
     private Transform healthBarTransform;
+    public AudioSource hitSound;
 
     //quick note: Quaternion is system used to represent rotations in 3D space, stops it from glitching or flipping (like we had before)
     void Start()
     {
+        hitSound = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
@@ -29,12 +31,15 @@ public class Enemy_health : MonoBehaviour
     {
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        hitSound.Play();
+       
         Debug.Log("Enemy took" + damageAmount + " damage. Health now: " + currentHealth);
 
         if(healthSlider != null)
         {
            
             healthSlider.value = currentHealth;
+            
         }
 
         if (currentHealth <= 0)
