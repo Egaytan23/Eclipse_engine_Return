@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;// For UI text updates
+using TMPro;
+using System.Collections.Generic;// For UI text updates
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class SpawnEnemy : MonoBehaviour
     public int totalWaves = 3; // Total number of waves to spawn
     public TextMeshProUGUI waveText; // UI text element to display wave information
 
+    public GameObject[] possibleDrops; // Array of possible drop items after wave completion
+    public Transform[] dropPoints; // Array of possible drop points for items
+    public int dropsPerWave = 1; // Number of drops to spawn per wave
     private Transform player; // Reference to the player location
    
 
@@ -36,7 +40,7 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWave(int enemyCount) //
+    IEnumerator SpawnWave(int enemyCount) // Coroutine to spawn a single wave of enemies
     {
         Debug.Log("Spawning wave " + currentWave + " with " + enemyCount + " enemies."); //enemyCount is passed from SpawnWaves Ie enemyCount = tospawn
 
@@ -61,8 +65,30 @@ public class SpawnEnemy : MonoBehaviour
         }
         }
 
+    public void SpawnDrops() // Method to spawn drops after wave completion
+    {
+        List<int> usedIndexes = new List<int>(); // To track used drop points
 
-    IEnumerator SpawnWaves() //
+        for (int i =0; i < dropsPerWave; i++)
+        {
+            if (possibleDrops.Length == 0 || dropPoints.Length == 0)
+            {
+                Debug.LogWarning("No possible drops or drop points defined.");
+                return;
+            }
+            GameObject dropPrefab = possibleDrops[Random.Range(0, possibleDrops.Length)];
+            int dropPointIndex;
+            do
+            {
+                dropPointIndex = Random.Range(0, dropPoints.Length);
+            } while (usedIndexes.Contains(dropPointIndex) && usedIndexes.Count < dropPoints.Length);
+            usedIndexes.Add(dropPointIndex);
+            Transform dropPoint = dropPoints[dropPointIndex];
+            Instantiate(dropPrefab, dropPoint.position + Vector3.up * 1.2f, dropPoint.rotation);
+        }
+    }
+
+    IEnumerator SpawnWaves() // Coroutine to spawn waves of enemies
     {
         //IEnumerator allows for pausing execution and resuming later, important for timed events like spawning enemies
         while (true)
@@ -95,6 +121,7 @@ public class SpawnEnemy : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
             }
             Debug.Log("Wave " + currentWave + " completed!");
+            SpawnDrops(); // Spawn drops after wave completion
             currentWave++;
             UpdateWaveUI(); // Update the UI with the new wave number
             yield return new WaitForSeconds(timeBetweenWaves);
