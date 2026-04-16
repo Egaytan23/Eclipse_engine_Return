@@ -20,13 +20,17 @@ public class SpawnEnemy : MonoBehaviour
     public Transform[] dropPoints; // Array of possible drop points for items
     public int dropsPerWave = 1; // Number of drops to spawn per wave
     private Transform player; // Reference to the player location
-   
 
+    public int MaxItems = 4; // max number of items that can be collected, used for win condition in DoorSceneLoader
+    public int ItemsCollected = 0; // Counter for the number of items collected
+
+    private DoorSceneLoader door;
     void Start()
     {
        
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
-       
+        door = FindObjectOfType<DoorSceneLoader>(); // Find the DoorSceneLoader script in the scene
+
         UpdateWaveUI(); // Update the UI with the initial wave number
         StartCoroutine(SpawnWaves()); // Start spawning waves
     }
@@ -65,6 +69,15 @@ public class SpawnEnemy : MonoBehaviour
         }
         }
 
+    public void ItemCheck()
+    {
+        if (ItemsCollected >= MaxItems)
+        {
+            door.IsDoorOpen = true;
+
+        }
+    } 
+
     public void SpawnDrops() // Method to spawn drops after wave completion
     {
         List<int> usedIndexes = new List<int>(); // To track used drop points
@@ -82,6 +95,7 @@ public class SpawnEnemy : MonoBehaviour
             {
                 dropPointIndex = Random.Range(0, dropPoints.Length);
             } while (usedIndexes.Contains(dropPointIndex) && usedIndexes.Count < dropPoints.Length);
+
             usedIndexes.Add(dropPointIndex);
             Transform dropPoint = dropPoints[dropPointIndex];
             Instantiate(dropPrefab, dropPoint.position + Vector3.up * 1.2f, dropPoint.rotation);
