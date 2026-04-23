@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public Slider HealthBar;
     public AudioSource AudioSource;
+    public AudioClip HitSound;
    
 
     void Start()
@@ -25,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        AudioSource.Play();
+        AudioSource.PlayOneShot(HitSound);
         HealthBar.value = currentHealth;
 
         if(currentHealth <= 0)

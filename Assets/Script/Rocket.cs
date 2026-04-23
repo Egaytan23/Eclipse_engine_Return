@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+    public GameObject explosionPrefab;
     public float speed = 20f;
     public float explosionRadius = 5f;
     public float explosionForce = 700f;
@@ -65,6 +66,12 @@ public class Rocket : MonoBehaviour
     void Explode(Vector3 center)
     {
         Debug.Log("ROCKET exploding at " + transform.position);
+        if (explosionPrefab != null)
+        {
+           GameObject explosion = Instantiate(explosionPrefab, center, Quaternion.identity);
+            explosion.transform.localScale = Vector3.one * 2.5f;
+            Destroy(explosion, 2f);
+        }
 
         Collider[] hits = Physics.OverlapSphere(transform.position, explosionRadius);
 
