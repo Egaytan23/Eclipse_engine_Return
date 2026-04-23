@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip walkSound;
     public float moveSpeed = 1f;
     public float jumpForce = 5f;
     public float mouseSensitivity = 2f;
@@ -52,10 +54,28 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         
-        Vector3 movement = transform.forward * vertical + transform.right * horizontal;
+        Vector3 movement = transform.forward * vertical + transform.right * horizontal; 
         Vector3 newVelocity = movement * moveSpeed;
         newVelocity.y = rb.velocity.y;
         rb.velocity = newVelocity;
+
+        if ((horizontal != 0 || vertical != 0) && isGrounded)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = walkSound;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if(audioSource.clip == walkSound)
+            {
+                audioSource.Stop();
+            }
+        }
+
 
         //Jump Input
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
