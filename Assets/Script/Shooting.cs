@@ -6,6 +6,8 @@ using TMPro;
 
 public class Shooting : MonoBehaviour
 {
+   
+   
     public WeaponController weaponController;
     public int range = 100;
     public int fireRate = 15;
@@ -49,6 +51,8 @@ public class Shooting : MonoBehaviour
 
         if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
+            GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, Quaternion.LookRotation(shootDir));
+            Destroy(flash, 0.5f);
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
             
             Rocket r = proj.GetComponent<Rocket>();

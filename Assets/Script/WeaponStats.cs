@@ -27,6 +27,8 @@ public class WeaponStats : MonoBehaviour
     public int reserveAmmo = 90;
     public float reloadTime = 2f;
 
+    public GameObject muzzleFlash;
+
    
 
     void Start()
