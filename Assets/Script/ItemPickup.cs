@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
+    public string weaponName;
     public bool pickupRange = false;
     private Light pickUplight;
     
@@ -42,6 +43,11 @@ public class ItemPickup : MonoBehaviour
             if (player != null)
             {
                 player.EquipWeapon(gameObject);
+
+                //SAVE WEAPON
+                PlayerPrefs.SetString("CurrentWeapon", weaponName);
+                PlayerPrefs.Save();
+
                 pickUplight.enabled = false; // Turn off the light when the player leaves the pickup range
             }
         }
