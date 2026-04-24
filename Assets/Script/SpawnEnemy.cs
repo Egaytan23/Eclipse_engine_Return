@@ -11,7 +11,7 @@ public class SpawnEnemy : MonoBehaviour
     public float timeBetweenWaves = 5f; // Time between waves of enemies
     public int enemiesPerWave = 5; // Number of enemies to spawn per wave
     public float timeBetweenSpawns = 0.25f; // Small delay between individual spawns in a wave (optional)
-    private int currentWave = 1; // Current wave number
+    public int currentWave = 1; // Current wave number
     private int enemimesAlive = 0; // Track number of alive enemies
     public int totalWaves = 3; // Total number of waves to spawn
     public TextMeshProUGUI waveText; // UI text element to display wave information
@@ -25,9 +25,19 @@ public class SpawnEnemy : MonoBehaviour
     public int ItemsCollected = 0; // Counter for the number of items collected
 
     private DoorSceneLoader door;
+
     void Start()
     {
-       
+        if (PlayerPrefs.HasKey("ItemsCollected"))
+        {
+            ItemsCollected = PlayerPrefs.GetInt("ItemsCollected");
+        }
+
+        if (PlayerPrefs.HasKey("CurrentWave"))
+        {
+            currentWave = PlayerPrefs.GetInt("CurrentWave");
+        }
+        ItemCheck();
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
         door = FindObjectOfType<DoorSceneLoader>(); // Find the DoorSceneLoader script in the scene
 
