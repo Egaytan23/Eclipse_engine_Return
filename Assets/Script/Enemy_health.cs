@@ -24,7 +24,8 @@ public class Enemy_health : MonoBehaviour
     public void DropItem()
     {
         Debug.Log("Dropping item");
-        GameObject item = Instantiate(Numbers, transform.position, Quaternion.identity);    
+        GameObject item = Instantiate(Numbers, transform.position, Quaternion.identity);  
+        Destroy(item, 5f); // Destroy the item after 5 seconds to prevent clutter
     }
 
     public void TakeDamage(int damageAmount)
