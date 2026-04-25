@@ -350,7 +350,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 3
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 1336949550903370, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!108 &5603812026749210781
 Light:
   m_ObjectHideFlags: 0

@@ -51,11 +51,13 @@ public class Shooting : MonoBehaviour
 
         if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
-            Quaternion flashRot = Quaternion.LookRotation(shootDir) * Quaternion.Euler(90f, 0f, 0f);
+            Quaternion flashRot = shootPoint.rotation * Quaternion.Euler(0f, 180f, 0f);
             GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, flashRot);
             Destroy(flash, 0.5f);
 
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
+
+            
             
             Rocket r = proj.GetComponent<Rocket>();
             if (r != null)
