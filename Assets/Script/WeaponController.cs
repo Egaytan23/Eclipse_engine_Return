@@ -9,11 +9,40 @@ public class WeaponController : MonoBehaviour
    
     public Transform shootPoint;
     public Shooting shooting;
+
+    public GameObject pistol;
+    public GameObject rocket;
+    public GameObject rifle;
+    public GameObject chicken;
+    public GameObject pan;
+
     void Start()
     {
         shooting = GetComponent<Shooting>();
+        if (PlayerPrefs.HasKey("CurrentWeapon"))
+        {
+            string weaponName = PlayerPrefs.GetString("CurrentWeapon");
+            EquipSavedWeapon(weaponName);
+        }
     }
 
+    public void EquipSavedWeapon(string weaponName)
+    {
+        GameObject[] weapons = GameObject.FindGameObjectsWithTag("Weapon");
+
+        foreach (GameObject w in weapons)
+        {
+            ItemPickup pickup = w.GetComponent<ItemPickup>();
+
+            if (pickup != null && pickup.weaponName == weaponName)
+            {
+                EquipWeapon(w);
+                return;
+            }
+        }
+
+        Debug.Log("Saved weapon not found in scene");
+    }
     public void EquipWeapon(GameObject weapon)
     {
         if (currentWeapon != null) {
@@ -39,6 +68,7 @@ public class WeaponController : MonoBehaviour
 
         //move weapon to weapon holder
         weapon.transform.SetParent(weaponHolder);
+
        
         WeaponStats stats = weapon.GetComponent<WeaponStats>();
 

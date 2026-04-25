@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f124b7a56fe05438e560387b67ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Rifle
   pickupRange: 0
 --- !u!114 &7136157691594921531
 MonoBehaviour:
@@ -349,6 +350,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 3
+  muzzleFlash: {fileID: 0}
 --- !u!108 &5603812026749210781
 Light:
   m_ObjectHideFlags: 0
@@ -418,7 +420,7 @@ Halo:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2611563273124365064}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Color:
     serializedVersion: 2
     rgba: 4293367818

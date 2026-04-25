@@ -126,6 +126,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
+  muzzleFlash: {fileID: 0}
 --- !u!114 &4329478606223008803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f124b7a56fe05438e560387b67ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: 'chicken '
   pickupRange: 0
 --- !u!114 &3336141297148260397
 MonoBehaviour:

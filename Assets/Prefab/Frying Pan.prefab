@@ -65,6 +65,10 @@ PrefabInstance:
       value: Frying Pan
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
@@ -127,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f124b7a56fe05438e560387b67ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Pan
   pickupRange: 0
 --- !u!54 &6467086214279749959
 Rigidbody:
@@ -203,6 +208,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
+  muzzleFlash: {fileID: 0}
 --- !u!108 &-416996353765443871
 Light:
   m_ObjectHideFlags: 0

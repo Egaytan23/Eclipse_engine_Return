@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f124b7a56fe05438e560387b67ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Rocket
   pickupRange: 0
 --- !u!54 &4665050907368356447
 Rigidbody:

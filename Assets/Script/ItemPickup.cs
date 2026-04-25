@@ -17,8 +17,11 @@ public class ItemPickup : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Something entered weapon trigger: " + other.name);
+
         if (other.CompareTag("Player"))
         {
+            Debug.Log("PLAYER ENTERED PICKUP RANGE");
             pickupRange = true;
         }
     }
@@ -42,13 +45,14 @@ public class ItemPickup : MonoBehaviour
 
             if (player != null)
             {
+
                 player.EquipWeapon(gameObject);
 
-                //SAVE WEAPON
                 PlayerPrefs.SetString("CurrentWeapon", weaponName);
                 PlayerPrefs.Save();
 
-                pickUplight.enabled = false; // Turn off the light when the player leaves the pickup range
+                if (pickUplight != null)
+                    pickUplight.enabled = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.G))
