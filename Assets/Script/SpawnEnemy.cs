@@ -28,6 +28,16 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
+        // Only reset once per game session
+        if (!PlayerPrefs.HasKey("SessionStarted"))
+        {
+            PlayerPrefs.DeleteKey("ItemsCollected");
+            PlayerPrefs.DeleteKey("CurrentWave");
+
+            PlayerPrefs.SetInt("SessionStarted", 1);
+        }
+
+
         if (PlayerPrefs.HasKey("ItemsCollected"))
         {
             ItemsCollected = PlayerPrefs.GetInt("ItemsCollected");

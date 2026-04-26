@@ -126,6 +126,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
+  hitEffect: {fileID: 7376034870073149932, guid: d69d39a3fd9481c45a87a4355063ec4c, type: 3}
   muzzleFlash: {fileID: 0}
 --- !u!114 &4329478606223008803
 MonoBehaviour:

@@ -561,6 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928605398}
   - component: {fileID: 1928605397}
+  - component: {fileID: 1928605399}
   m_Layer: 0
   m_Name: VideoPlayerObject
   m_TagString: Untagged
@@ -617,6 +618,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928605399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928605396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff37d08a010bec8429ce27e8aca6415c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 1928605397}
+  nextSceneName: MainMenu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
