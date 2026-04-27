@@ -55,10 +55,7 @@ public class DoorSceneLoader : MonoBehaviour
 
             // Save where we came from
             PlayerPrefs.SetString(ReturnSceneKey, SceneManager.GetActiveScene().name);
-            PlayerPrefs.SetFloat(ReturnXKey, player.position.x);
-            PlayerPrefs.SetFloat(ReturnYKey, player.position.y);
-            PlayerPrefs.SetFloat(ReturnZKey, player.position.z);
-            PlayerPrefs.SetFloat(ReturnRotYKey, player.eulerAngles.y);
+           
 
             //force write immediately
             PlayerPrefs.Save();

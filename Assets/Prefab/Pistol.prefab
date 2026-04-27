@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 1
-  floatAmount: 0.5
+  floatAmount: 0.15
   rotateSpeed: 45
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &8241798254555902129
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2384133642343426184, guid: f195bb9a3e7258447a37420599485eac, type: 3}
-  damage: 40
+  damage: 100
   fireRate: 5
-  bulletSpeed: 3
+  bulletSpeed: 20
   shootSound: {fileID: 8300000, guid: ebb9b4cb56565864b8396fc65d17a9ed, type: 3}
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 3b4644cb917e85448804996ac5c753a5, type: 3}
@@ -225,6 +225,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
+  hitEffect: {fileID: 0}
   muzzleFlash: {fileID: 1336949550903370, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!114 &991647674910571370
 MonoBehaviour:
@@ -240,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Pistol
   pickupRange: 0
+  pickUplight: {fileID: 0}
+  isEquipped: 0
 --- !u!108 &3293912136526910633
 Light:
   m_ObjectHideFlags: 0
@@ -312,8 +315,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4293367818
-  m_Size: 1
+    rgba: 2566914047
+  m_Size: 0.5
 --- !u!4 &4343063863212641142 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3652011956315678642, guid: 5b179aac64625174b8215c3641b081ee, type: 3}

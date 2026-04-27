@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1739836834639240213, guid: d4f96d007cf475d4cbe90087db360242, type: 3}
-  damage: 100
+  damage: 80
   fireRate: 3
   bulletSpeed: 5
   shootSound: {fileID: 8300000, guid: ec56e8ada907a9947a3632cacecd55fb, type: 3}
@@ -192,6 +192,7 @@ MonoBehaviour:
   magSize: 1
   reserveAmmo: 10
   reloadTime: 3
+  hitEffect: {fileID: 0}
   muzzleFlash: {fileID: 1336949550903370, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!114 &2090464378623096296
 MonoBehaviour:
@@ -206,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 1
-  floatAmount: 0.5
+  floatAmount: 0.15
   rotateSpeed: 45
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &4625600040837512405
@@ -223,6 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Rocket
   pickupRange: 0
+  pickUplight: {fileID: 0}
+  isEquipped: 0
 --- !u!54 &4665050907368356447
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -343,7 +346,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4293367818
+    rgba: 714708
   m_Size: 1
 --- !u!4 &777493138872590762 stripped
 Transform:

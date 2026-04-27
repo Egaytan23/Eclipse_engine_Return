@@ -27,13 +27,15 @@ public class MainMenuController : MonoBehaviour
     public void QuitGame()
     {
         Time.timeScale = 1f;
-        //# is a preprocessor directive its like instructions to unity before the code runs
+
+        //RESET WAVE + ITEMS HERE
+        PlayerPrefs.DeleteKey("ItemsCollected");
+        PlayerPrefs.DeleteKey("CurrentWave");
+
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;   // stops Play Mode
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-    Application.Quit();                                // quits build
+    Application.Quit();
 #endif
-        PlayerPrefs.DeleteKey("SessionStarted");
     }
 }
-

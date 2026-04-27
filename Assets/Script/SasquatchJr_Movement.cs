@@ -43,30 +43,29 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Desired Vel: " + agent.desiredVelocity.magnitude);
         if (player == null || agent == null) return;
 
-        float distance = Vector3.Distance(transform.position, player.position); // calculates distance between enemy and player
+        float distance = Vector3.Distance(transform.position, player.position);
 
-        // If enemy is far, chase player normally
+        //STATE 1: CHASE (far away)
         if (distance > circleRadius)
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-
-
         }
-        else
+
+        //STATE 2: CIRCLE (mid range)
+        else if (distance > Attackrange)
         {
             CirclePlayer();
-
         }
 
-        // Attack only when actually in attack range
-        if (distance <= Attackrange)
+        // STATE 3: ATTACK (close range)
+        else
         {
             agent.isStopped = true;
 
+            // Face the player
             Vector3 lookPos = player.position - transform.position;
             lookPos.y = 0f;
 
@@ -75,12 +74,15 @@ public class SasquatchJr_Movement : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(lookPos);
             }
 
+            // Attack with cooldown
             if (Time.time >= nextAttackTime)
             {
                 AttackPlayer();
                 nextAttackTime = Time.time + Attackcooldown;
             }
-            }
+        }
+
+        // Animation update
         if (animator != null)
         {
             float speed = agent.desiredVelocity.magnitude;
@@ -88,7 +90,7 @@ public class SasquatchJr_Movement : MonoBehaviour
         }
     }
 
-        void CirclePlayer()
+    void CirclePlayer()
         {
             if (Time.time < nextRepathTime) return;
 

@@ -147,15 +147,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f46e900ca89ed740a27b2cafc548736, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.707
+      value: -6.001797
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f46e900ca89ed740a27b2cafc548736, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.193
+      value: 0.2124957
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f46e900ca89ed740a27b2cafc548736, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.798
+      value: 3.615122
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5f46e900ca89ed740a27b2cafc548736, type: 3}
       propertyPath: m_LocalRotation.w
@@ -307,6 +307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Rifle
   pickupRange: 0
+  pickUplight: {fileID: 0}
+  isEquipped: 0
 --- !u!114 &7136157691594921531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 1
-  floatAmount: 0.5
+  floatAmount: 0.15
   rotateSpeed: 45
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &7587885983493987719
@@ -336,9 +338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 2384133642343426184, guid: f195bb9a3e7258447a37420599485eac, type: 3}
-  damage: 30
+  damage: 35
   fireRate: 8
-  bulletSpeed: 10
+  bulletSpeed: 25
   shootSound: {fileID: 8300000, guid: b183d7b5e1b3e954abf1366511a42e2e, type: 3}
   Shootvolume: 1
   reloadSound: {fileID: 8300000, guid: 5e3c1fa5e8077c84fb4f8a5c69de6249, type: 3}
@@ -350,6 +352,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 3
+  hitEffect: {fileID: 0}
   muzzleFlash: {fileID: 1336949550903370, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!108 &5603812026749210781
 Light:
@@ -423,7 +426,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4293367818
+    rgba: 4278904801
   m_Size: 1
 --- !u!4 &3419905957360605618 stripped
 Transform:

@@ -6,12 +6,13 @@ public class ItemPickup : MonoBehaviour
 {
     public string weaponName;
     public bool pickupRange = false;
-    private Light pickUplight;
-    
+    public Light pickUplight;
+    public bool isEquipped = false;
 
-
+    private WeaponController player;
     void Start()
     {
+        player = FindAnyObjectByType<WeaponController>();
         pickUplight = GetComponentInChildren<Light>(); // Assuming the light is a child of the item
     }
 
@@ -41,29 +42,35 @@ public class ItemPickup : MonoBehaviour
     {
         if (pickupRange && Input.GetKeyDown(KeyCode.LeftShift))
         {
-            WeaponController player = FindAnyObjectByType<WeaponController>();
+           
 
             if (player != null)
             {
 
                 player.EquipWeapon(gameObject);
+                isEquipped = true;
+                if (pickUplight != null)
+                    //pickUplight.enabled = false;
 
                 PlayerPrefs.SetString("CurrentWeapon", weaponName);
                 PlayerPrefs.Save();
 
-                if (pickUplight != null)
-                    pickUplight.enabled = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            WeaponController player = FindAnyObjectByType<WeaponController>();
+           
             if (player != null)
             {
                 if (player.currentWeapon == gameObject)
                 {
                     player.DropWeapon();
-                    pickUplight.enabled = true; // Turn off the light when the player leaves the pickup range
+                    isEquipped = false;
+                    if (pickUplight != null)
+                    {
+                        //pickUplight.enabled = true; // Turn on the light when the player drops the weapon
+                    }
+                    
                 }
             }
         }

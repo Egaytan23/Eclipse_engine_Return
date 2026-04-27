@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.3971477
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalScale.y
@@ -18,19 +18,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.3971477
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.133
+      value: -5.4924
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.098
+      value: 0.3131
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.383
+      value: 4.1355257
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62ec7ec5775d3b848a373b5c7b8fe8b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 1
-  floatAmount: 0.5
+  floatAmount: 0.15
   rotateSpeed: 45
   startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &157782836616463602
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Pan
   pickupRange: 0
+  pickUplight: {fileID: 0}
+  isEquipped: 0
 --- !u!54 &6467086214279749959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
-  damage: 40
+  damage: 12
   fireRate: 15
   bulletSpeed: 5
   shootSound: {fileID: 0}
@@ -203,8 +205,8 @@ MonoBehaviour:
   reloadVolume: 1
   holdLocalPosition: {x: 0, y: 0, z: 0}
   holdlocalEuler: {x: 0, y: 0, z: 0}
-  RangeAttack: 2
-  isMelee: 0
+  RangeAttack: 6
+  isMelee: 1
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
@@ -282,5 +284,5 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4293367818
-  m_Size: 1
+    rgba: 15177738
+  m_Size: 0.5

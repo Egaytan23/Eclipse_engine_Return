@@ -8,7 +8,7 @@ public class Rocket : MonoBehaviour
     public float speed = 20f;
     public float explosionRadius = 5f;
     public float explosionForce = 700f;
-    public float explosionDamage = 50f;
+    public float explosionDamage = 80f;
     public float lifetime = 5f;
     public float upwardModifier = 0.3f;
     bool armed = false;

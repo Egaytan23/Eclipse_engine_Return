@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fcbcbb8723dcc2b428b0e8798db56a56, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.6203637
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcbcbb8723dcc2b428b0e8798db56a56, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.6203637
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcbcbb8723dcc2b428b0e8798db56a56, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.6203637
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fcbcbb8723dcc2b428b0e8798db56a56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,7 +121,7 @@ MonoBehaviour:
   reloadVolume: 1
   holdLocalPosition: {x: 0, y: 0, z: 0}
   holdlocalEuler: {x: 0, y: 0, z: 0}
-  RangeAttack: 2
+  RangeAttack: 6
   isMelee: 1
   magSize: 30
   reserveAmmo: 90
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 'chicken '
   pickupRange: 0
+  pickUplight: {fileID: 0}
+  isEquipped: 0
 --- !u!114 &3336141297148260397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 1
-  floatAmount: 0.25
+  floatAmount: 0.15
   rotateSpeed: 45
   startPos: {x: 0, y: 0, z: 0}
 --- !u!54 &2172124131324015352
@@ -278,5 +280,5 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4293367818
-  m_Size: 1
+    rgba: 15177738
+  m_Size: 0.5

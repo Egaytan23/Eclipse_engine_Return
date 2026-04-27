@@ -26,33 +26,28 @@ public class SpawnEnemy : MonoBehaviour
 
     private DoorSceneLoader door;
 
+
+    private static bool hasStarted = false;
+
     void Start()
     {
-        // Only reset once per game session
-        if (!PlayerPrefs.HasKey("SessionStarted"))
-        {
-            PlayerPrefs.DeleteKey("ItemsCollected");
-            PlayerPrefs.DeleteKey("CurrentWave");
+        ItemsCollected = PlayerPrefs.GetInt("ItemsCollected", 0);
+        currentWave = Mathf.Max(1, PlayerPrefs.GetInt("CurrentWave", 1));
 
-            PlayerPrefs.SetInt("SessionStarted", 1);
-        }
+        enemimesAlive = 0;
 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        door = FindObjectOfType<DoorSceneLoader>();
 
-        if (PlayerPrefs.HasKey("ItemsCollected"))
-        {
-            ItemsCollected = PlayerPrefs.GetInt("ItemsCollected");
-        }
-
-        if (PlayerPrefs.HasKey("CurrentWave"))
-        {
-            currentWave = PlayerPrefs.GetInt("CurrentWave");
-        }
         ItemCheck();
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
-        door = FindObjectOfType<DoorSceneLoader>(); // Find the DoorSceneLoader script in the scene
+        UpdateWaveUI();
 
-        UpdateWaveUI(); // Update the UI with the initial wave number
-        StartCoroutine(SpawnWaves()); // Start spawning waves
+        //THIS IS THE FIX
+        if (!hasStarted)
+        {
+            hasStarted = true;
+            StartCoroutine(SpawnWaves());
+        }
     }
 
 

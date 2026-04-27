@@ -57,8 +57,12 @@ public class Shooting : MonoBehaviour
 
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
 
-            
-            
+            Bullet b = proj.GetComponent<Bullet>();
+            if (b != null)
+            {
+                b.damage = dmg;
+            }
+
             Rocket r = proj.GetComponent<Rocket>();
             if (r != null)
             {
