@@ -32,7 +32,7 @@ public class ItemPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pickupRange = false;
-            
+
 
         }
     }
@@ -42,7 +42,7 @@ public class ItemPickup : MonoBehaviour
     {
         if (pickupRange && Input.GetKeyDown(KeyCode.LeftShift))
         {
-           
+
 
             if (player != null)
             {
@@ -52,14 +52,14 @@ public class ItemPickup : MonoBehaviour
                 if (pickUplight != null)
                     //pickUplight.enabled = false;
 
-                PlayerPrefs.SetString("CurrentWeapon", weaponName);
+                    PlayerPrefs.SetString("CurrentWeapon", weaponName);
                 PlayerPrefs.Save();
 
             }
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-           
+
             if (player != null)
             {
                 if (player.currentWeapon == gameObject)
@@ -70,7 +70,7 @@ public class ItemPickup : MonoBehaviour
                     {
                         //pickUplight.enabled = true; // Turn on the light when the player drops the weapon
                     }
-                    
+
                 }
             }
         }

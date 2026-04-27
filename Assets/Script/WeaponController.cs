@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
     public GameObject riflePrefab;
     public Transform weaponHolder;
     public GameObject currentWeapon; // The weapon currently held by the player
-   
+
     public Transform shootPoint;
     public Shooting shooting;
 
@@ -37,29 +37,18 @@ public class WeaponController : MonoBehaviour
         if (weaponName == "Pistol") prefab = pistolPrefab;
         else if (weaponName == "Rocket") prefab = rocketPrefab;
         else if (weaponName == "Rifle") prefab = riflePrefab;
-        
+
 
         if (prefab == null)
         {
-            Debug.LogError("NO PREFAB FOR: " + weaponName);
+            Debug.LogError("Missing prefab for " + weaponName);
             return;
         }
 
         GameObject weapon = Instantiate(prefab);
 
-        //THIS IS THE FIX
-        weapon.transform.SetParent(weaponHolder);
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
-
-        currentWeapon = weapon;
-
-        // set shoot point again
-        Transform sp = weapon.transform.Find("Barrel/ShootPoint");
-        if (sp != null)
-        {
-            shooting.shootPoint = sp;
-        }
+        //THIS IS THE IMPORTANT LINE
+        EquipWeapon(weapon);
     }
     public void EquipWeapon(GameObject weapon)
     {
@@ -82,7 +71,7 @@ public class WeaponController : MonoBehaviour
 
         weapon.transform.SetParent(weaponHolder);
 
-        // TURN OFF HALO (ROOT + CHILD SAFE)
+        // TURN OFF HALO (ROOT  CHILD SAFE)
         Behaviour halo = (Behaviour)weapon.GetComponent("Halo");
 
         if (halo == null)
@@ -185,6 +174,6 @@ public class WeaponController : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
 }

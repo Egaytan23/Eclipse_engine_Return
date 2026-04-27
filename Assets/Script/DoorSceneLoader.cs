@@ -9,7 +9,7 @@ public class DoorSceneLoader : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
     public bool IsDoorOpen;
-    
+
     private const string ReturnSceneKey = "ReturnScene"; // Key for storing the return scene name in PlayerPrefs
     private const string ReturnXKey = "ReturnX"; // Key for storing the return X position in PlayerPrefs
     private const string ReturnYKey = "ReturnY"; // Key for storing the return Y position in PlayerPrefs
@@ -40,12 +40,12 @@ public class DoorSceneLoader : MonoBehaviour
         player = null;
     }
 
-  
+
 
     private void Update()
     {
         if (!playerInTrigger || player == null) return;
-        
+
         if (Input.GetKeyDown(interactKey) && IsDoorOpen == true)
         {
             // Save progress
@@ -55,7 +55,7 @@ public class DoorSceneLoader : MonoBehaviour
 
             // Save where we came from
             PlayerPrefs.SetString(ReturnSceneKey, SceneManager.GetActiveScene().name);
-           
+
 
             //force write immediately
             PlayerPrefs.Save();

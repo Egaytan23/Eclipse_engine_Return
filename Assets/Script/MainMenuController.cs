@@ -14,8 +14,8 @@ public class MainMenuController : MonoBehaviour
 
     public void ShowHowToPlay()
     {
-       mainMenuPanel.SetActive(false);
-         howToPlayPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        howToPlayPanel.SetActive(true);
     }
 
     public void BackToMainMenu()
@@ -24,13 +24,21 @@ public class MainMenuController : MonoBehaviour
         mainMenuPanel.SetActive(true);
     }
 
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("ItemsCollected");
+        PlayerPrefs.DeleteKey("CurrentWave");
+        PlayerPrefs.DeleteKey("CurrentWeapon");
+        PlayerPrefs.Save();
+    }
     public void QuitGame()
     {
         Time.timeScale = 1f;
 
-        //RESET WAVE + ITEMS HERE
         PlayerPrefs.DeleteKey("ItemsCollected");
         PlayerPrefs.DeleteKey("CurrentWave");
+        PlayerPrefs.DeleteKey("CurrentWeapon");
+        PlayerPrefs.Save();
 
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
