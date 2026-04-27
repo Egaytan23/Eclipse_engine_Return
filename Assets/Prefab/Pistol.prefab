@@ -214,9 +214,9 @@ MonoBehaviour:
   damage: 40
   fireRate: 5
   bulletSpeed: 3
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: ebb9b4cb56565864b8396fc65d17a9ed, type: 3}
   Shootvolume: 1
-  reloadSound: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: 3b4644cb917e85448804996ac5c753a5, type: 3}
   reloadVolume: 1
   holdLocalPosition: {x: 0, y: 0, z: 0}
   holdlocalEuler: {x: 0, y: 0, z: 0}
@@ -225,6 +225,7 @@ MonoBehaviour:
   magSize: 30
   reserveAmmo: 90
   reloadTime: 2
+  muzzleFlash: {fileID: 1336949550903370, guid: 4543ab5e3d405ec40a8d4e9aa5165030, type: 3}
 --- !u!114 &991647674910571370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f124b7a56fe05438e560387b67ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: Pistol
   pickupRange: 0
 --- !u!108 &3293912136526910633
 Light:

@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class SasquatchJr_Movement : MonoBehaviour
 {
+    Animator animator;
     public int SasjrDamage = 5;
 
     public float moveSpeed = 5f;
@@ -25,6 +26,7 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>(); // assumes Animator is on a child object (like the model)    
         player = GameObject.FindGameObjectWithTag("Player").transform; // assumes player has "Player" tag
 
         agent = GetComponent<NavMeshAgent>(); // assumes NavMeshAgent component is attached
@@ -41,6 +43,7 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Desired Vel: " + agent.desiredVelocity.magnitude);
         if (player == null || agent == null) return;
 
         float distance = Vector3.Distance(transform.position, player.position); // calculates distance between enemy and player
@@ -50,11 +53,13 @@ public class SasquatchJr_Movement : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
+
+
         }
         else
         {
-            // when close, move around the player instead of directly into them
             CirclePlayer();
+
         }
 
         // Attack only when actually in attack range
@@ -75,43 +80,48 @@ public class SasquatchJr_Movement : MonoBehaviour
                 AttackPlayer();
                 nextAttackTime = Time.time + Attackcooldown;
             }
-        }
-    }
-
-    void CirclePlayer()
-    {
-        if (Time.time < nextRepathTime) return;
-
-        nextRepathTime = Time.time + repathTime;
-
-        float angle = Time.time * circleSpeed * 50f + circleOffset;
-        float radians = angle * Mathf.Deg2Rad;
-
-        Vector3 circlePosition = new Vector3(
-            Mathf.Cos(radians) * circleRadius,
-            0f,
-            Mathf.Sin(radians) * circleRadius
-        );
-
-        Vector3 targetPosition = player.position + circlePosition;
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(targetPosition, out hit, 1.5f, NavMesh.AllAreas))
+            }
+        if (animator != null)
         {
-            agent.isStopped = false;
-            agent.SetDestination(hit.position);
+            float speed = agent.desiredVelocity.magnitude;
+            animator.SetFloat("Speed", speed);
         }
     }
 
-    void AttackPlayer()
-    {
-        Debug.Log("Enemy attacked");
-
-        PlayerHealth health = player.GetComponent<PlayerHealth>();
-
-        if (health != null)
+        void CirclePlayer()
         {
-            health.TakeDamage(SasjrDamage);
+            if (Time.time < nextRepathTime) return;
+
+            nextRepathTime = Time.time + repathTime;
+
+            float angle = Time.time * circleSpeed * 50f + circleOffset;
+            float radians = angle * Mathf.Deg2Rad;
+
+            Vector3 circlePosition = new Vector3(
+                Mathf.Cos(radians) * circleRadius,
+                0f,
+                Mathf.Sin(radians) * circleRadius
+            );
+
+            Vector3 targetPosition = player.position + circlePosition;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(targetPosition, out hit, 1.5f, NavMesh.AllAreas))
+            {
+                agent.isStopped = false;
+                agent.SetDestination(hit.position);
+            }
+        }
+
+        void AttackPlayer()
+        {
+            Debug.Log("Enemy attacked");
+
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
+
+            if (health != null)
+            {
+                health.TakeDamage(SasjrDamage);
+            }
         }
     }
-}

@@ -51,9 +51,13 @@ public class Shooting : MonoBehaviour
 
         if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
-            GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, Quaternion.LookRotation(shootDir));
+            Quaternion flashRot = shootPoint.rotation * Quaternion.Euler(0f, 180f, 0f);
+            GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, flashRot);
             Destroy(flash, 0.5f);
+
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
+
+            
             
             Rocket r = proj.GetComponent<Rocket>();
             if (r != null)
@@ -69,22 +73,7 @@ public class Shooting : MonoBehaviour
             }
 
             Destroy(proj, 2f);
-        }
-
-
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, range))
-        {
-            Debug.Log(hit.transform.name);
-
-            Enemy_health target = hit.transform.GetComponent<Enemy_health>();
-
-            if (target != null)
-            {
-                target.TakeDamage(dmg);
-            }
+  
 
 
         } 
@@ -103,10 +92,26 @@ public class Shooting : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, stats.RangeAttack))
             {
                 Debug.Log(hit.transform.name);
+
                 Enemy_health target = hit.transform.GetComponent<Enemy_health>();
                 if (target != null)
                 {
                     target.TakeDamage(stats.damage);
+
+                    // SPAWN HIT EFFECT
+                    if (stats.hitEffect != null)
+                    {
+                        GameObject effect = Instantiate(
+                            stats.hitEffect,
+                            hit.point, // EXACT impact point
+                            Quaternion.identity
+                        );
+
+                        // Face camera (cartoon style)
+                        effect.transform.forward = fpsCam.transform.forward;
+
+                        Destroy(effect, 0.5f);
+                    }
                 }
             }
         }

@@ -126,7 +126,7 @@ MonoBehaviour:
   speed: 30
   explosionRadius: 5
   explosionForce: 50
-  explosionDamage: 50
+  explosionDamage: 80
   lifetime: 5
   upwardModifier: 0.3
 --- !u!54 &9148846575965369007

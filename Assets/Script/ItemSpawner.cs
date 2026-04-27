@@ -39,7 +39,17 @@ public class ItemSpawner : MonoBehaviour
 
             Vector3 spawnPos = new Vector3(randomX, spawnY, randomZ);
 
-            Instantiate(weaponPrefabs[i], spawnPos, Quaternion.identity);
+            GameObject weapon = Instantiate(weaponPrefabs[i], spawnPos, Quaternion.identity);
+
+            // FORCE IT VISIBLE
+            weapon.SetActive(true);
+
+            // make sure renderer is on
+            MeshRenderer mr = weapon.GetComponentInChildren<MeshRenderer>();
+            if (mr != null)
+            {
+                mr.enabled = true;
+            }
 
             Debug.Log("Spawned " + weaponPrefabs[i].name + " at " + spawnPos);
         }

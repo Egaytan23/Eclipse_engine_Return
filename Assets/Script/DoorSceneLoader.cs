@@ -21,7 +21,7 @@ public class DoorSceneLoader : MonoBehaviour
 
     public void Start()
     {
-        IsDoorOpen = false;
+        //IsDoorOpen = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,9 +45,14 @@ public class DoorSceneLoader : MonoBehaviour
     private void Update()
     {
         if (!playerInTrigger || player == null) return;
-
+        
         if (Input.GetKeyDown(interactKey) && IsDoorOpen == true)
         {
+            // Save progress
+            PlayerPrefs.SetInt("ItemsCollected", SpawnEnemy.ItemsCollected);
+            PlayerPrefs.SetInt("CurrentWave", SpawnEnemy.currentWave);
+            PlayerPrefs.Save();
+
             // Save where we came from
             PlayerPrefs.SetString(ReturnSceneKey, SceneManager.GetActiveScene().name);
             PlayerPrefs.SetFloat(ReturnXKey, player.position.x);

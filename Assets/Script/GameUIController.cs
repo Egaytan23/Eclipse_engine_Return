@@ -104,5 +104,6 @@ public class GameUIController : MonoBehaviour
 #else
     Application.Quit();                                // quits build
 #endif
+        PlayerPrefs.DeleteKey("SessionStarted");
     }
 }
