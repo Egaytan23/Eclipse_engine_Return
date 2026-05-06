@@ -11,21 +11,21 @@ public class LoadLevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnGame();
+        OnGame(); // Automatically load the game scene when this script starts
     }
 
-    public void OnGame()
+    public void OnGame() // Method to load the game scene
     {
 
         SceneManager.LoadScene("Game");
     }
 
-    public void OnMenu()
+    public void OnMenu() // Method to load the main menu scene
     {
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void OnApplicationQuit()
+    public void OnApplicationQuit() // Method to quit the application
     {
         Application.Quit();
 

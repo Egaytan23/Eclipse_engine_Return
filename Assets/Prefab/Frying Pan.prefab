@@ -199,13 +199,13 @@ MonoBehaviour:
   damage: 12
   fireRate: 15
   bulletSpeed: 5
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: e61ad24d6409107408fc66ad0050dea7, type: 3}
   Shootvolume: 1
   reloadSound: {fileID: 0}
   reloadVolume: 1
   holdLocalPosition: {x: 0, y: 0, z: 0}
   holdlocalEuler: {x: 0, y: 0, z: 0}
-  RangeAttack: 6
+  RangeAttack: 12
   isMelee: 1
   magSize: 30
   reserveAmmo: 90

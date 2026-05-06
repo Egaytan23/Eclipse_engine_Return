@@ -27,7 +27,7 @@ public class SpawnEnemy : MonoBehaviour
     private DoorSceneLoader door;
 
 
-    private static bool hasStarted = false;
+   
 
     void Start()
     {
@@ -93,16 +93,16 @@ public class SpawnEnemy : MonoBehaviour
     {
         List<int> usedIndexes = new List<int>(); // To track used drop points
 
-        for (int i = 0; i < dropsPerWave; i++)
+        for (int i = 0; i < dropsPerWave; i++) // Loop to spawn the specified number of drops per wave
         {
-            if (possibleDrops.Length == 0 || dropPoints.Length == 0)
+            if (possibleDrops.Length == 0 || dropPoints.Length == 0) // Check if there are any drops or drop points defined before attempting to spawn
             {
                 Debug.LogWarning("No possible drops or drop points defined.");
                 return;
             }
             GameObject dropPrefab = possibleDrops[Random.Range(0, possibleDrops.Length)];
             int dropPointIndex;
-            do
+            do // Loop to find a unique drop point index that hasn't been used yet for this wave
             {
                 dropPointIndex = Random.Range(0, dropPoints.Length);
             } while (usedIndexes.Contains(dropPointIndex) && usedIndexes.Count < dropPoints.Length);

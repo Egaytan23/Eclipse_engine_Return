@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject pistolPrefab;
-    public GameObject rocketPrefab;
-    public GameObject riflePrefab;
-    public Transform weaponHolder;
+    public GameObject pistolPrefab; // Prefabs for each weapon type
+    public GameObject rocketPrefab; // Prefabs for each weapon type
+    public GameObject riflePrefab;  // Prefabs for each weapon type
+    public Transform weaponHolder; //   The transform where the weapon will be held (e.g., player's hand)
     public GameObject currentWeapon; // The weapon currently held by the player
 
-    public Transform shootPoint;
-    public Shooting shooting;
+    public Transform shootPoint; // The point from which projectiles will be fired, set by the equipped weapon
+    public Shooting shooting; // Reference to the Shooting script to update the shoot point when equipping weapons
 
-    public GameObject pistol;
-    public GameObject rocket;
-    public GameObject rifle;
-    public GameObject chicken;
-    public GameObject pan;
+  
 
 
     void Start()
@@ -30,13 +26,13 @@ public class WeaponController : MonoBehaviour
             EquipSavedWeapon(weapon);
         }
     }
-    public void EquipSavedWeapon(string weaponName)
+    public void EquipSavedWeapon(string weaponName) // This method is called on Start to equip the weapon saved in PlayerPrefs
     {
         GameObject prefab = null;
 
-        if (weaponName == "Pistol") prefab = pistolPrefab;
-        else if (weaponName == "Rocket") prefab = rocketPrefab;
-        else if (weaponName == "Rifle") prefab = riflePrefab;
+        if (weaponName == "Pistol") prefab = pistolPrefab; // Determine which prefab to use based on the weapon name
+        else if (weaponName == "Rocket") prefab = rocketPrefab; // Determine which prefab to use based on the weapon name
+        else if (weaponName == "Rifle") prefab = riflePrefab; // Determine which prefab to use based on the weapon name
 
 
         if (prefab == null)
@@ -45,12 +41,12 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        GameObject weapon = Instantiate(prefab);
+        GameObject weapon = Instantiate(prefab); 
 
         //THIS IS THE IMPORTANT LINE
         EquipWeapon(weapon);
     }
-    public void EquipWeapon(GameObject weapon)
+    public void EquipWeapon(GameObject weapon) // This method is called by ItemPickup when the player picks up a weapon, and also by EquipSavedWeapon to equip the saved weapon on Start
     {
         if (currentWeapon != null)
         {
@@ -96,13 +92,13 @@ public class WeaponController : MonoBehaviour
 
         if (stats != null)
         {
-            weapon.transform.localPosition = stats.holdLocalPosition;
-            weapon.transform.localRotation = Quaternion.Euler(stats.holdlocalEuler);
+            weapon.transform.localPosition = stats.holdLocalPosition; // Set the local position and rotation based on the weapon's stats
+            weapon.transform.localRotation = Quaternion.Euler(stats.holdlocalEuler); // Set the local position and rotation based on the weapon's stats
         }
         else
         {
-            weapon.transform.localPosition = Vector3.zero;
-            weapon.transform.localRotation = Quaternion.identity;
+            weapon.transform.localPosition = Vector3.zero; // Default to zero if no stats are found
+            weapon.transform.localRotation = Quaternion.identity; // Default to identity if no stats are found
         }
 
         currentWeapon = weapon;

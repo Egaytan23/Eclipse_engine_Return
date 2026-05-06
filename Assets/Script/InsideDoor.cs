@@ -12,15 +12,15 @@ public class InsideDoor : MonoBehaviour
     public float openTime = 3f;
 
     private bool isBusy = false;
-    private Quaternion closedRotation;
-    private Quaternion openRotation;
+    private Quaternion closedRotation; // Store the initial rotation of the door as the closed rotation
+    private Quaternion openRotation; // Calculate the open rotation based on the closed rotation and the specified open angle
 
     public Transform door;
 
     void Start()
     {
-       closedRotation = door.rotation;
-        openRotation = Quaternion.Euler(door.eulerAngles.x, door.eulerAngles.y + doorOpenAngle, door.eulerAngles.z);
+       closedRotation = door.rotation; //   Store the initial rotation of the door as the closed rotation
+        openRotation = Quaternion.Euler(door.eulerAngles.x, door.eulerAngles.y + doorOpenAngle, door.eulerAngles.z); // Calculate the open rotation based on the closed rotation and the specified open angle
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,7 +32,7 @@ public class InsideDoor : MonoBehaviour
 
     }
 
-   IEnumerator OpenThenClosedoor()
+   IEnumerator OpenThenClosedoor() // Coroutine to handle opening the door, waiting for a specified time, and then closing it again while playing the appropriate sounds
     {
         isBusy = true;
         door.rotation = openRotation;
