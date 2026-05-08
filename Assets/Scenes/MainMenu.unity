@@ -276,9 +276,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Objective: Survive 10 rounds to beat the game. Enemies deal 1.2x extra
     damage per round. After each round collect key codes to get access into the grocery
-    store to find powerful weapons.\n\nCombat:\nLeft click to shoot\r \nShift to
-    weapon to pick up \r\n\nMovemoent:\nMove around with the mouse\r\nW move up\r\nA
-    move left\r\nS move down\r\nD move right\r\nSpace to jump\n"
+    store to find powerful weapons.\n\nCombat:\nLeft click to shoot\r \nAuto pick
+    up weapons by walking over\nG to swap to other guns\n\nMovemoent:\nMove around
+    with the mouse\r\nW move up\r\nA move left\r\nS move down\r\nD move right\r\nSpace
+    to jump\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -572,7 +573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &773816281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &987085746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1528,7 +1529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1714023695
 RectTransform:
   m_ObjectHideFlags: 0
