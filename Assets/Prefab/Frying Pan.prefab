@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Pan
-  pickupRange: 0
   pickUplight: {fileID: 0}
   isEquipped: 0
 --- !u!54 &6467086214279749959
@@ -199,7 +198,7 @@ MonoBehaviour:
   damage: 12
   fireRate: 15
   bulletSpeed: 5
-  shootSound: {fileID: 8300000, guid: e61ad24d6409107408fc66ad0050dea7, type: 3}
+  shootSound: {fileID: 0}
   Shootvolume: 1
   reloadSound: {fileID: 0}
   reloadVolume: 1

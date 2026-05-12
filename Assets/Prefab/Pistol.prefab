@@ -214,9 +214,9 @@ MonoBehaviour:
   damage: 25
   fireRate: 4
   bulletSpeed: 20
-  shootSound: {fileID: 8300000, guid: ebb9b4cb56565864b8396fc65d17a9ed, type: 3}
+  shootSound: {fileID: 0}
   Shootvolume: 1
-  reloadSound: {fileID: 8300000, guid: 3b4644cb917e85448804996ac5c753a5, type: 3}
+  reloadSound: {fileID: 0}
   reloadVolume: 1
   holdLocalPosition: {x: 0, y: 0, z: 0}
   holdlocalEuler: {x: 0, y: 0, z: 0}
@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Pistol
-  pickupRange: 0
   pickUplight: {fileID: 0}
   isEquipped: 0
 --- !u!108 &3293912136526910633

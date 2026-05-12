@@ -115,7 +115,7 @@ MonoBehaviour:
   damage: 5
   fireRate: 15
   bulletSpeed: 5
-  shootSound: {fileID: 8300000, guid: f3b96cfc2426213428a4b31019316a6a, type: 3}
+  shootSound: {fileID: 0}
   Shootvolume: 1
   reloadSound: {fileID: 0}
   reloadVolume: 1
@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: 'chicken '
-  pickupRange: 0
   pickUplight: {fileID: 0}
   isEquipped: 0
 --- !u!114 &3336141297148260397
