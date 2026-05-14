@@ -17,14 +17,28 @@ public class Healing : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth = collision.GetComponent<PlayerHealth>(); // Get the PlayerHealth component from the player object
-            HealPlayer();
-            Debug.Log("healed by " + healAmount + " health is now " + playerHealth.currentHealth);
-            Destroy(gameObject); // Destroy the healing object after use
+            playerHealth = collision.GetComponent<PlayerHealth>();
+
+            if (playerHealth == null) return;
+
+            // CHECK IF PLAYER NEEDS HEALING
+            if (playerHealth.currentHealth < playerHealth.maxHealth)
+            {
+                HealPlayer();
+
+                Debug.Log("Healed by " + healAmount +
+                          " health is now " + playerHealth.currentHealth);
+
+                Destroy(gameObject); //ONLY destroy if used
+            }
+            else
+            {
+                Debug.Log("Already at full health — cannot heal");
+            }
         }
     }
 
-   
+
     public void HealPlayer() // Method to heal the player
     {
         playerHealth.currentHealth += healAmount; // Increase the player's current health by the heal amount

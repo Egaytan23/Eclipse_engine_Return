@@ -12,28 +12,38 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Game_Teammate");
     }
 
-    public void ShowHowToPlay()
+    public void ShowHowToPlay() // Method to show the "How to Play" panel
     {
-       mainMenuPanel.SetActive(false);
-         howToPlayPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        howToPlayPanel.SetActive(true);
     }
 
-    public void BackToMainMenu()
+    public void BackToMainMenu() // Method to return to the main menu from the "How to Play" panel
     {
         howToPlayPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 
-    public void QuitGame()
+    void OnApplicationQuit() // Method to clear PlayerPrefs when quitting the application
+    {
+        PlayerPrefs.DeleteKey("ItemsCollected");
+        PlayerPrefs.DeleteKey("CurrentWave");
+        PlayerPrefs.DeleteKey("CurrentWeapon");
+        PlayerPrefs.Save();
+    }
+    public void QuitGame() // Method to quit the game and clear PlayerPrefs
     {
         Time.timeScale = 1f;
-        //# is a preprocessor directive its like instructions to unity before the code runs
+
+        PlayerPrefs.DeleteKey("ItemsCollected");
+        PlayerPrefs.DeleteKey("CurrentWave");
+        PlayerPrefs.DeleteKey("CurrentWeapon");
+        PlayerPrefs.Save();
+        // The following code is used to stop play mode in the Unity Editor, and quit the application in a built version of the game. This is necessary because Application.Quit() does not work in the Unity Editor, and will not stop play mode. By using conditional compilation, we can ensure that the correct behavior occurs in both cases.
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;   // stops Play Mode
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-    Application.Quit();                                // quits build
+    Application.Quit();
 #endif
-        PlayerPrefs.DeleteKey("SessionStarted");
     }
 }
-

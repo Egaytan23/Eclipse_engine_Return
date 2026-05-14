@@ -6,15 +6,13 @@ using TMPro;
 
 public class Shooting : MonoBehaviour
 {
-   
-   
     public WeaponController weaponController;
     public int range = 100;
     public int fireRate = 15;
     public int damage = 40;
     public AudioSource audioSource;
 
-    public Camera fpsCam;
+    public Camera fpsCam; // Reference to the player's camera for raycasting
 
 
     public GameObject projectilePrefab;
@@ -30,7 +28,7 @@ public class Shooting : MonoBehaviour
 
     public TextMeshProUGUI ammoText;
 
-    private GameObject lastWeapon;
+    private GameObject lastWeapon; // To track the last equipped weapon for ammo setup
     void Start()
     {
         if (audioSource == null)
@@ -43,31 +41,35 @@ public class Shooting : MonoBehaviour
         UpdateAmmoUI();
         }
 
-    void Shoot(WeaponStats stats, int dmg, float speed)
+    void Shoot(WeaponStats stats, int dmg, float speed) //shooting logic for projectile weapons
     {
 
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        Vector3 shootDir = ray.direction;
+        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // Ray from the center of the screen
+        Vector3 shootDir = ray.direction; // Direction to shoot the projectile
 
         if (stats != null && stats.projectilePrefab != null && shootPoint != null)
         {
-            Quaternion flashRot = shootPoint.rotation * Quaternion.Euler(0f, 180f, 0f);
-            GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, flashRot);
+            Quaternion flashRot = shootPoint.rotation * Quaternion.Euler(0f, 180f, 0f); // Rotate the muzzle flash to face the correct direction
+            GameObject flash = Instantiate(stats.muzzleFlash, shootPoint.position, flashRot); // Spawn muzzle flash at the shoot point
             Destroy(flash, 0.5f);
 
             GameObject proj = Instantiate(stats.projectilePrefab, shootPoint.position, Quaternion.LookRotation(shootDir));
 
-            
-            
-            Rocket r = proj.GetComponent<Rocket>();
+            Bullet b = proj.GetComponent<Bullet>(); // Check if the projectile has a Bullet component to set damage
+            if (b != null)
+            {
+                b.damage = dmg;
+            }
+
+            Rocket r = proj.GetComponent<Rocket>(); // Check if the projectile has a Rocket component to initialize it with the shooter's root transform
             if (r != null)
             {
-                r.Init(transform.root);
+                r.Init(transform.root); // Pass the shooter's root transform to the rocket for ownership tracking
             }
 
             Rigidbody rb = proj.GetComponent<Rigidbody>();
 
-            if (rb != null)
+            if (rb != null) // Set the projectile's velocity in the shoot direction
             {
                 rb.velocity = shootDir * speed;
             }
@@ -80,20 +82,20 @@ public class Shooting : MonoBehaviour
     }
 
 
-    void Melee(WeaponStats stats)
+    void Melee(WeaponStats stats) //melee attack logic using raycasting to detect hits within a certain range
     {
 
-        if (stats == null) return;
+        if (stats == null) return; // Ensure stats is not null before proceeding
         {
             Debug.Log("Melee range = " + stats.RangeAttack);
 
-            Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // Ray from the center of the screen for melee attack
 
-            if (Physics.Raycast(ray, out RaycastHit hit, stats.RangeAttack))
+            if (Physics.Raycast(ray, out RaycastHit hit, stats.RangeAttack)) // Perform raycast to detect hits within melee range
             {
                 Debug.Log(hit.transform.name);
 
-                Enemy_health target = hit.transform.GetComponent<Enemy_health>();
+                Enemy_health target = hit.transform.GetComponent<Enemy_health>(); 
                 if (target != null)
                 {
                     target.TakeDamage(stats.damage);
@@ -104,7 +106,7 @@ public class Shooting : MonoBehaviour
                         GameObject effect = Instantiate(
                             stats.hitEffect,
                             hit.point, // EXACT impact point
-                            Quaternion.identity
+                            Quaternion.identity 
                         );
 
                         // Face camera (cartoon style)
@@ -118,7 +120,7 @@ public class Shooting : MonoBehaviour
 
     }
 
-    IEnumerator ReloadRoutine(WeaponStats stats)
+    IEnumerator ReloadRoutine(WeaponStats stats) //reload logic that plays the reload sound and waits for the reload time before refilling ammo
     {
         isReloading = true;
 
@@ -128,7 +130,7 @@ public class Shooting : MonoBehaviour
             yield return new WaitForSeconds(stats.reloadTime);
 
             int needed = stats.magSize - currentAmmo;
-            int toLoad = Mathf.Min(needed, reserveAmmo);
+            int toLoad = Mathf.Min(needed, reserveAmmo); // Calculate how much ammo to load based on what's needed and what's available in reserve
 
             currentAmmo += toLoad;
             reserveAmmo -= toLoad;
@@ -138,27 +140,27 @@ public class Shooting : MonoBehaviour
         isReloading = false;
     }
 
-    void TryReload(WeaponStats stats)
+    void TryReload(WeaponStats stats) //check if the player can reload based on current ammo, reserve ammo, and whether they are already reloading before starting the reload routine
     {
         if (isReloading) return;
         if (stats == null) return;
         if (currentAmmo >= stats.magSize) return;
         if (reserveAmmo <= 0) return;
 
-        StartCoroutine(ReloadRoutine(stats));
+        StartCoroutine(ReloadRoutine(stats)); // Start the reload process
     }
 
-    void SetupAmmo(bool force)
+    void SetupAmmo(bool force) // Set up ammo counts based on the currently equipped weapon, and only update if the weapon has changed or if forced to update
     {
-        GameObject w = (weaponController != null) ? weaponController.currentWeapon : null;
+        GameObject w = (weaponController != null) ? weaponController.currentWeapon : null; // Get the currently equipped weapon from the weapon controller, or null if there is no weapon controller
 
-        if (!force && w == lastWeapon) return;
+        if (!force && w == lastWeapon) return; // If not forced to update and the weapon hasn't changed, do nothing
         {
             
             lastWeapon = w;
         }
 
-        if (w == null)
+        if (w == null) // If there is no weapon equipped, set ammo counts to zero and update the UI
         {
             currentAmmo = 0;
             reserveAmmo = 0;
@@ -167,7 +169,7 @@ public class Shooting : MonoBehaviour
             return;
         }
         WeaponStats stats = w.GetComponent<WeaponStats>();
-        if (stats == null) return;
+        if (stats == null) return; // If the equipped weapon doesn't have a WeaponStats component, do nothing
         {
             
             currentAmmo = stats.magSize;
@@ -177,7 +179,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void UpdateAmmoUI()
+    void UpdateAmmoUI() // Update the ammo display in the UI to show the current ammo and reserve ammo counts
     {
         if (ammoText != null)
         {
@@ -187,21 +189,21 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (GameUIController.isPaused) return;
+        if (GameUIController.isPaused) return; // Don't allow shooting or reloading when the game is paused
         SetupAmmo(false); //reset ammo when weapon changes
 
-        WeaponStats stats = null;
-        if(weaponController != null && weaponController.currentWeapon != null)
+        WeaponStats stats = null; // Get the WeaponStats component from the currently equipped weapon, if there is one
+        if (weaponController != null && weaponController.currentWeapon != null) // Check if the weapon controller and current weapon are not null before trying to get the WeaponStats component
         {
             stats = weaponController.currentWeapon.GetComponent<WeaponStats>();
         }
 
 
-        int dmg = (stats != null) ? stats.damage : damage;
-        float rate = (stats != null) ? stats.fireRate : fireRate;
-        float speed = (stats != null) ? stats.bulletSpeed : blulletSpeed;
+        int dmg = (stats != null) ? stats.damage : damage; // Use the damage value from the WeaponStats if available, otherwise use the default damage value from the Shooting script
+        float rate = (stats != null) ? stats.fireRate : fireRate; // Use the fire rate from the WeaponStats if available, otherwise use the default fire rate value from the Shooting script
+        float speed = (stats != null) ? stats.bulletSpeed : blulletSpeed; // Use the bullet speed from the WeaponStats if available, otherwise use the default bullet speed value from the Shooting script
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             TryReload(stats);
         }

@@ -144,12 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ac59e680961074cadc226f5df4674d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SasjrDamage: 6
-  moveSpeed: 4
-  Attackrange: 1
-  Attackcooldown: 2
-  circleRadius: 3.5
-  circleSpeed: 2
+  SasjrDamage: 4
+  moveSpeed: 3
+  Attackrange: 1.5
+  Attackcooldown: 2.5
+  circleRadius: 2.5
+  circleSpeed: 1.5
   repathTime: 0.5
 --- !u!114 &4572856186753324440
 MonoBehaviour:

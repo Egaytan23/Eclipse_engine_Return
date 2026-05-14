@@ -26,33 +26,24 @@ public class SpawnEnemy : MonoBehaviour
 
     private DoorSceneLoader door;
 
+
+   
+
     void Start()
     {
-        // Only reset once per game session
-        if (!PlayerPrefs.HasKey("SessionStarted"))
-        {
-            PlayerPrefs.DeleteKey("ItemsCollected");
-            PlayerPrefs.DeleteKey("CurrentWave");
+        ItemsCollected = PlayerPrefs.GetInt("ItemsCollected", 0);
+        currentWave = Mathf.Max(1, PlayerPrefs.GetInt("CurrentWave", 1));
 
-            PlayerPrefs.SetInt("SessionStarted", 1);
-        }
+        enemimesAlive = 0;
 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        door = FindObjectOfType<DoorSceneLoader>();
 
-        if (PlayerPrefs.HasKey("ItemsCollected"))
-        {
-            ItemsCollected = PlayerPrefs.GetInt("ItemsCollected");
-        }
-
-        if (PlayerPrefs.HasKey("CurrentWave"))
-        {
-            currentWave = PlayerPrefs.GetInt("CurrentWave");
-        }
         ItemCheck();
-        player = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
-        door = FindObjectOfType<DoorSceneLoader>(); // Find the DoorSceneLoader script in the scene
+        UpdateWaveUI();
 
-        UpdateWaveUI(); // Update the UI with the initial wave number
-        StartCoroutine(SpawnWaves()); // Start spawning waves
+        StopAllCoroutines();
+        StartCoroutine(SpawnWaves());
     }
 
 
@@ -72,14 +63,14 @@ public class SpawnEnemy : MonoBehaviour
         {
             GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-  
-            GameObject enemy = Instantiate(prefab, spawnPoint.position + Vector3.up * 1.2f,spawnPoint.rotation);
+
+            GameObject enemy = Instantiate(prefab, spawnPoint.position + Vector3.up * 1.2f, spawnPoint.rotation);
             SasquatchJr_Movement enemyStats = enemy.GetComponent<SasquatchJr_Movement>();
-           
-           
+
+
             enemyStats.SasjrDamage += (currentWave - 1) * 2; // baseDamage + (currentWave - 1) * increasePerWave += adds to
             Debug.Log("Spawned enemy with damage: " + enemyStats.SasjrDamage);
-            
+
             enemimesAlive++;
 
             EnemyDeathNotifier notifier = enemy.AddComponent<EnemyDeathNotifier>();
@@ -87,7 +78,7 @@ public class SpawnEnemy : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        }
+    }
 
     public void ItemCheck()
     {
@@ -96,22 +87,22 @@ public class SpawnEnemy : MonoBehaviour
             door.IsDoorOpen = true;
 
         }
-    } 
+    }
 
     public void SpawnDrops() // Method to spawn drops after wave completion
     {
         List<int> usedIndexes = new List<int>(); // To track used drop points
 
-        for (int i =0; i < dropsPerWave; i++)
+        for (int i = 0; i < dropsPerWave; i++) // Loop to spawn the specified number of drops per wave
         {
-            if (possibleDrops.Length == 0 || dropPoints.Length == 0)
+            if (possibleDrops.Length == 0 || dropPoints.Length == 0) // Check if there are any drops or drop points defined before attempting to spawn
             {
                 Debug.LogWarning("No possible drops or drop points defined.");
                 return;
             }
             GameObject dropPrefab = possibleDrops[Random.Range(0, possibleDrops.Length)];
             int dropPointIndex;
-            do
+            do // Loop to find a unique drop point index that hasn't been used yet for this wave
             {
                 dropPointIndex = Random.Range(0, dropPoints.Length);
             } while (usedIndexes.Contains(dropPointIndex) && usedIndexes.Count < dropPoints.Length);
@@ -130,7 +121,7 @@ public class SpawnEnemy : MonoBehaviour
             Debug.Log("Preparing to spawn wave " + currentWave);
 
 
-            if(currentWave > totalWaves)
+            if (currentWave > totalWaves)
             {
                 Debug.Log("Game over! All waves completed.");
                 SceneManager.LoadScene("Win");
@@ -138,7 +129,7 @@ public class SpawnEnemy : MonoBehaviour
 
 
             }
-            
+
             int toSpawn = enemiesPerWave + (currentWave - 1) * 2; // Increase enemies per wave
 
             Debug.Log("Wave " + currentWave + " will spawn " + timeBetweenWaves + " seconds");
@@ -147,12 +138,12 @@ public class SpawnEnemy : MonoBehaviour
             Debug.Log("Spawning wave " + currentWave);
 
             yield return StartCoroutine(SpawnWave(toSpawn));
-            
-            
-            
+
+
+
             while (enemimesAlive > 0)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return null;
             }
             Debug.Log("Wave " + currentWave + " completed!");
             SpawnDrops(); // Spawn drops after wave completion
@@ -170,7 +161,7 @@ public class SpawnEnemy : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 }
 

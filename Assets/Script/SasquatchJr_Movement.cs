@@ -43,30 +43,29 @@ public class SasquatchJr_Movement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Desired Vel: " + agent.desiredVelocity.magnitude);
         if (player == null || agent == null) return;
 
-        float distance = Vector3.Distance(transform.position, player.position); // calculates distance between enemy and player
+        float distance = Vector3.Distance(transform.position, player.position);
 
-        // If enemy is far, chase player normally
+        //STATE 1: CHASE (far away)
         if (distance > circleRadius)
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-
-
         }
-        else
+
+        //STATE 2: CIRCLE (mid range)
+        else if (distance > Attackrange)
         {
             CirclePlayer();
-
         }
 
-        // Attack only when actually in attack range
-        if (distance <= Attackrange)
+        // STATE 3: ATTACK (close range)
+        else
         {
             agent.isStopped = true;
 
+            // Face the player
             Vector3 lookPos = player.position - transform.position;
             lookPos.y = 0f;
 
@@ -75,12 +74,15 @@ public class SasquatchJr_Movement : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(lookPos);
             }
 
+            // Attack with cooldown
             if (Time.time >= nextAttackTime)
             {
                 AttackPlayer();
                 nextAttackTime = Time.time + Attackcooldown;
             }
-            }
+        }
+
+        // Animation update
         if (animator != null)
         {
             float speed = agent.desiredVelocity.magnitude;
@@ -88,29 +90,29 @@ public class SasquatchJr_Movement : MonoBehaviour
         }
     }
 
-        void CirclePlayer()
-        {
-            if (Time.time < nextRepathTime) return;
+    void CirclePlayer() // Method to make the enemy circle around the player when within a certain radius
+    {
+            if (Time.time < nextRepathTime) return; // Only recalculate path at intervals to reduce CPU usage
 
-            nextRepathTime = Time.time + repathTime;
+        nextRepathTime = Time.time + repathTime; // Calculate the angle for circling based on time, speed, and a random offset to give each enemy a unique pattern
 
-            float angle = Time.time * circleSpeed * 50f + circleOffset;
-            float radians = angle * Mathf.Deg2Rad;
+        float angle = Time.time * circleSpeed * 50f + circleOffset; // The 50f multiplier is arbitrary to make the circling speed feel good, adjust as needed
+        float radians = angle * Mathf.Deg2Rad; // Convert angle to radians for trigonometric functions
 
-            Vector3 circlePosition = new Vector3(
-                Mathf.Cos(radians) * circleRadius,
+        Vector3 circlePosition = new Vector3( // Calculate the position on the circle around the player using cosine and sine functions
+                Mathf.Cos(radians) * circleRadius, // X position on the circle
                 0f,
-                Mathf.Sin(radians) * circleRadius
+                Mathf.Sin(radians) * circleRadius // Z position on the circle
             );
 
-            Vector3 targetPosition = player.position + circlePosition;
+            Vector3 targetPosition = player.position + circlePosition; // The target position for the enemy to move towards is the player's position plus the calculated circle offset
 
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(targetPosition, out hit, 1.5f, NavMesh.AllAreas))
-            {
-                agent.isStopped = false;
-                agent.SetDestination(hit.position);
-            }
+        NavMeshHit hit; // Check if the target position is on the NavMesh (i.e., a valid position for the enemy to move to). If it is, set the agent's destination to that position. This ensures the enemy can navigate around obstacles while circling.
+        if (NavMesh.SamplePosition(targetPosition, out hit, 1.5f, NavMesh.AllAreas)) // The 1.5f is the max distance to search for a valid position on the NavMesh around the target position, adjust as needed based on your game's scale and obstacle density
+        {
+                agent.isStopped = false; // Ensure the agent is not stopped so it can move towards the new destination
+            agent.SetDestination(hit.position); // Set the agent's destination to the valid position found on the NavMesh, allowing it to circle around the player while navigating around obstacles
+        }
         }
 
         void AttackPlayer()
